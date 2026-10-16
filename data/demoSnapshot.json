@@ -1,0 +1,3046 @@
+{
+  "generatedAt": "2026-10-16T15:46:17.748Z",
+  "kpis": {
+    "totalSales": 2297200.86,
+    "totalProfit": 286397.02,
+    "totalOrders": 5009,
+    "totalQuantity": 37873,
+    "totalCustomers": 793,
+    "totalProducts": 1862
+  },
+  "salesByYearMonth": [
+    {
+      "orderCount": 32,
+      "year": 2014,
+      "month": 1,
+      "period": "2014-01",
+      "totalSales": 14236.9,
+      "totalProfit": 2450.19
+    },
+    {
+      "orderCount": 28,
+      "year": 2014,
+      "month": 2,
+      "period": "2014-02",
+      "totalSales": 4519.89,
+      "totalProfit": 862.31
+    },
+    {
+      "orderCount": 71,
+      "year": 2014,
+      "month": 3,
+      "period": "2014-03",
+      "totalSales": 55691.01,
+      "totalProfit": 498.73
+    },
+    {
+      "orderCount": 66,
+      "year": 2014,
+      "month": 4,
+      "period": "2014-04",
+      "totalSales": 28295.35,
+      "totalProfit": 3488.84
+    },
+    {
+      "orderCount": 69,
+      "year": 2014,
+      "month": 5,
+      "period": "2014-05",
+      "totalSales": 23648.29,
+      "totalProfit": 2738.71
+    },
+    {
+      "orderCount": 66,
+      "year": 2014,
+      "month": 6,
+      "period": "2014-06",
+      "totalSales": 34595.13,
+      "totalProfit": 4976.52
+    },
+    {
+      "orderCount": 65,
+      "year": 2014,
+      "month": 7,
+      "period": "2014-07",
+      "totalSales": 33946.39,
+      "totalProfit": -841.48
+    },
+    {
+      "orderCount": 72,
+      "year": 2014,
+      "month": 8,
+      "period": "2014-08",
+      "totalSales": 27909.47,
+      "totalProfit": 5318.1
+    },
+    {
+      "orderCount": 130,
+      "year": 2014,
+      "month": 9,
+      "period": "2014-09",
+      "totalSales": 81777.35,
+      "totalProfit": 8328.1
+    },
+    {
+      "orderCount": 78,
+      "year": 2014,
+      "month": 10,
+      "period": "2014-10",
+      "totalSales": 31453.39,
+      "totalProfit": 3448.26
+    },
+    {
+      "orderCount": 151,
+      "year": 2014,
+      "month": 11,
+      "period": "2014-11",
+      "totalSales": 78628.72,
+      "totalProfit": 9292.13
+    },
+    {
+      "orderCount": 141,
+      "year": 2014,
+      "month": 12,
+      "period": "2014-12",
+      "totalSales": 69545.62,
+      "totalProfit": 8983.57
+    },
+    {
+      "orderCount": 29,
+      "year": 2015,
+      "month": 1,
+      "period": "2015-01",
+      "totalSales": 18174.08,
+      "totalProfit": -3281.01
+    },
+    {
+      "orderCount": 36,
+      "year": 2015,
+      "month": 2,
+      "period": "2015-02",
+      "totalSales": 11951.41,
+      "totalProfit": 2813.85
+    },
+    {
+      "orderCount": 79,
+      "year": 2015,
+      "month": 3,
+      "period": "2015-03",
+      "totalSales": 38726.25,
+      "totalProfit": 9732.1
+    },
+    {
+      "orderCount": 72,
+      "year": 2015,
+      "month": 4,
+      "period": "2015-04",
+      "totalSales": 34195.21,
+      "totalProfit": 4187.5
+    },
+    {
+      "orderCount": 74,
+      "year": 2015,
+      "month": 5,
+      "period": "2015-05",
+      "totalSales": 30131.69,
+      "totalProfit": 4667.87
+    },
+    {
+      "orderCount": 68,
+      "year": 2015,
+      "month": 6,
+      "period": "2015-06",
+      "totalSales": 24797.29,
+      "totalProfit": 3335.56
+    },
+    {
+      "orderCount": 66,
+      "year": 2015,
+      "month": 7,
+      "period": "2015-07",
+      "totalSales": 28765.33,
+      "totalProfit": 3288.65
+    },
+    {
+      "orderCount": 68,
+      "year": 2015,
+      "month": 8,
+      "period": "2015-08",
+      "totalSales": 36898.33,
+      "totalProfit": 5355.81
+    },
+    {
+      "orderCount": 140,
+      "year": 2015,
+      "month": 9,
+      "period": "2015-09",
+      "totalSales": 64595.92,
+      "totalProfit": 8209.16
+    },
+    {
+      "orderCount": 87,
+      "year": 2015,
+      "month": 10,
+      "period": "2015-10",
+      "totalSales": 31404.92,
+      "totalProfit": 2817.37
+    },
+    {
+      "orderCount": 158,
+      "year": 2015,
+      "month": 11,
+      "period": "2015-11",
+      "totalSales": 75972.56,
+      "totalProfit": 12474.79
+    },
+    {
+      "orderCount": 161,
+      "year": 2015,
+      "month": 12,
+      "period": "2015-12",
+      "totalSales": 74919.52,
+      "totalProfit": 8016.97
+    },
+    {
+      "orderCount": 48,
+      "year": 2016,
+      "month": 1,
+      "period": "2016-01",
+      "totalSales": 18542.49,
+      "totalProfit": 2824.82
+    },
+    {
+      "orderCount": 45,
+      "year": 2016,
+      "month": 2,
+      "period": "2016-02",
+      "totalSales": 22978.82,
+      "totalProfit": 5004.58
+    },
+    {
+      "orderCount": 86,
+      "year": 2016,
+      "month": 3,
+      "period": "2016-03",
+      "totalSales": 51715.88,
+      "totalProfit": 3611.97
+    },
+    {
+      "orderCount": 89,
+      "year": 2016,
+      "month": 4,
+      "period": "2016-04",
+      "totalSales": 38750.04,
+      "totalProfit": 2977.81
+    },
+    {
+      "orderCount": 108,
+      "year": 2016,
+      "month": 5,
+      "period": "2016-05",
+      "totalSales": 56987.73,
+      "totalProfit": 8662.15
+    },
+    {
+      "orderCount": 97,
+      "year": 2016,
+      "month": 6,
+      "period": "2016-06",
+      "totalSales": 40344.53,
+      "totalProfit": 4750.38
+    },
+    {
+      "orderCount": 96,
+      "year": 2016,
+      "month": 7,
+      "period": "2016-07",
+      "totalSales": 39261.96,
+      "totalProfit": 4432.88
+    },
+    {
+      "orderCount": 90,
+      "year": 2016,
+      "month": 8,
+      "period": "2016-08",
+      "totalSales": 31115.37,
+      "totalProfit": 2062.07
+    },
+    {
+      "orderCount": 192,
+      "year": 2016,
+      "month": 9,
+      "period": "2016-09",
+      "totalSales": 73410.02,
+      "totalProfit": 9328.66
+    },
+    {
+      "orderCount": 105,
+      "year": 2016,
+      "month": 10,
+      "period": "2016-10",
+      "totalSales": 59687.75,
+      "totalProfit": 16243.14
+    },
+    {
+      "orderCount": 183,
+      "year": 2016,
+      "month": 11,
+      "period": "2016-11",
+      "totalSales": 79411.97,
+      "totalProfit": 4011.41
+    },
+    {
+      "orderCount": 176,
+      "year": 2016,
+      "month": 12,
+      "period": "2016-12",
+      "totalSales": 96999.04,
+      "totalProfit": 17885.31
+    },
+    {
+      "orderCount": 69,
+      "year": 2017,
+      "month": 1,
+      "period": "2017-01",
+      "totalSales": 43971.37,
+      "totalProfit": 7140.44
+    },
+    {
+      "orderCount": 53,
+      "year": 2017,
+      "month": 2,
+      "period": "2017-02",
+      "totalSales": 20301.13,
+      "totalProfit": 1613.87
+    },
+    {
+      "orderCount": 118,
+      "year": 2017,
+      "month": 3,
+      "period": "2017-03",
+      "totalSales": 58872.35,
+      "totalProfit": 14751.89
+    },
+    {
+      "orderCount": 116,
+      "year": 2017,
+      "month": 4,
+      "period": "2017-04",
+      "totalSales": 36521.54,
+      "totalProfit": 933.29
+    },
+    {
+      "orderCount": 118,
+      "year": 2017,
+      "month": 5,
+      "period": "2017-05",
+      "totalSales": 44261.11,
+      "totalProfit": 6342.58
+    },
+    {
+      "orderCount": 133,
+      "year": 2017,
+      "month": 6,
+      "period": "2017-06",
+      "totalSales": 52981.73,
+      "totalProfit": 8223.34
+    },
+    {
+      "orderCount": 111,
+      "year": 2017,
+      "month": 7,
+      "period": "2017-07",
+      "totalSales": 45264.42,
+      "totalProfit": 6952.62
+    },
+    {
+      "orderCount": 111,
+      "year": 2017,
+      "month": 8,
+      "period": "2017-08",
+      "totalSales": 63120.89,
+      "totalProfit": 9040.96
+    },
+    {
+      "orderCount": 226,
+      "year": 2017,
+      "month": 9,
+      "period": "2017-09",
+      "totalSales": 87866.65,
+      "totalProfit": 10991.56
+    },
+    {
+      "orderCount": 147,
+      "year": 2017,
+      "month": 10,
+      "period": "2017-10",
+      "totalSales": 77776.92,
+      "totalProfit": 9275.28
+    },
+    {
+      "orderCount": 261,
+      "year": 2017,
+      "month": 11,
+      "period": "2017-11",
+      "totalSales": 118447.82,
+      "totalProfit": 9690.1
+    },
+    {
+      "orderCount": 224,
+      "year": 2017,
+      "month": 12,
+      "period": "2017-12",
+      "totalSales": 83829.32,
+      "totalProfit": 8483.35
+    }
+  ],
+  "categoryPerformance": [
+    {
+      "subCategories": [
+        {
+          "subCategory": "Accessories",
+          "sales": 167380.32,
+          "profit": 41936.64,
+          "quantity": 2976
+        },
+        {
+          "subCategory": "Machines",
+          "sales": 189238.63,
+          "profit": 3384.76,
+          "quantity": 440
+        },
+        {
+          "subCategory": "Phones",
+          "sales": 330007.05,
+          "profit": 44515.73,
+          "quantity": 3289
+        },
+        {
+          "subCategory": "Copiers",
+          "sales": 149528.03,
+          "profit": 55617.82,
+          "quantity": 234
+        }
+      ],
+      "category": "Technology",
+      "categorySales": 836154.03,
+      "categoryProfit": 145454.95
+    },
+    {
+      "subCategories": [
+        {
+          "subCategory": "Chairs",
+          "sales": 328449.1,
+          "profit": 26590.17,
+          "quantity": 2356
+        },
+        {
+          "subCategory": "Bookcases",
+          "sales": 114880,
+          "profit": -3472.56,
+          "quantity": 868
+        },
+        {
+          "subCategory": "Tables",
+          "sales": 206965.53,
+          "profit": -17725.48,
+          "quantity": 1241
+        },
+        {
+          "subCategory": "Furnishings",
+          "sales": 91705.16,
+          "profit": 13059.14,
+          "quantity": 3563
+        }
+      ],
+      "category": "Furniture",
+      "categorySales": 741999.8,
+      "categoryProfit": 18451.27
+    },
+    {
+      "subCategories": [
+        {
+          "subCategory": "Art",
+          "sales": 27118.79,
+          "profit": 6527.79,
+          "quantity": 3000
+        },
+        {
+          "subCategory": "Appliances",
+          "sales": 107532.16,
+          "profit": 18138.01,
+          "quantity": 1729
+        },
+        {
+          "subCategory": "Envelopes",
+          "sales": 16476.4,
+          "profit": 6964.18,
+          "quantity": 906
+        },
+        {
+          "subCategory": "Fasteners",
+          "sales": 3024.28,
+          "profit": 949.52,
+          "quantity": 914
+        },
+        {
+          "subCategory": "Binders",
+          "sales": 203412.73,
+          "profit": 30221.76,
+          "quantity": 5974
+        },
+        {
+          "subCategory": "Labels",
+          "sales": 12486.31,
+          "profit": 5546.25,
+          "quantity": 1400
+        },
+        {
+          "subCategory": "Storage",
+          "sales": 223843.61,
+          "profit": 21278.83,
+          "quantity": 3158
+        },
+        {
+          "subCategory": "Paper",
+          "sales": 78479.21,
+          "profit": 34053.57,
+          "quantity": 5178
+        },
+        {
+          "subCategory": "Supplies",
+          "sales": 46673.54,
+          "profit": -1189.1,
+          "quantity": 647
+        }
+      ],
+      "category": "Office Supplies",
+      "categorySales": 719047.03,
+      "categoryProfit": 122490.8
+    }
+  ],
+  "topCustomers": [
+    {
+      "totalOrders": 5,
+      "customerId": "SM-20320",
+      "name": "Sean Miller",
+      "segment": "Home Office",
+      "city": "Monroe",
+      "state": "North Carolina",
+      "totalSpent": 25043.05,
+      "totalProfitGenerated": -1980.74
+    },
+    {
+      "totalOrders": 5,
+      "customerId": "TC-20980",
+      "name": "Tamara Chand",
+      "segment": "Corporate",
+      "city": "Seattle",
+      "state": "Washington",
+      "totalSpent": 19052.22,
+      "totalProfitGenerated": 8981.32
+    },
+    {
+      "totalOrders": 6,
+      "customerId": "RB-19360",
+      "name": "Raymond Buch",
+      "segment": "Consumer",
+      "city": "Auburn",
+      "state": "New York",
+      "totalSpent": 15117.34,
+      "totalProfitGenerated": 6976.1
+    },
+    {
+      "totalOrders": 4,
+      "customerId": "TA-21385",
+      "name": "Tom Ashbrook",
+      "segment": "Home Office",
+      "city": "New York City",
+      "state": "New York",
+      "totalSpent": 14595.62,
+      "totalProfitGenerated": 4703.79
+    },
+    {
+      "totalOrders": 10,
+      "customerId": "AB-10105",
+      "name": "Adrian Barton",
+      "segment": "Consumer",
+      "city": "Phoenix",
+      "state": "Arizona",
+      "totalSpent": 14473.57,
+      "totalProfitGenerated": 5444.81
+    },
+    {
+      "totalOrders": 12,
+      "customerId": "KL-16645",
+      "name": "Ken Lonsdale",
+      "segment": "Consumer",
+      "city": "Chicago",
+      "state": "Illinois",
+      "totalSpent": 14175.23,
+      "totalProfitGenerated": 806.86
+    },
+    {
+      "totalOrders": 9,
+      "customerId": "SC-20095",
+      "name": "Sanjit Chand",
+      "segment": "Consumer",
+      "city": "Concord",
+      "state": "California",
+      "totalSpent": 14142.33,
+      "totalProfitGenerated": 5757.41
+    },
+    {
+      "totalOrders": 6,
+      "customerId": "HL-15040",
+      "name": "Hunter Lopez",
+      "segment": "Consumer",
+      "city": "Houston",
+      "state": "Texas",
+      "totalSpent": 12873.3,
+      "totalProfitGenerated": 5622.43
+    },
+    {
+      "totalOrders": 11,
+      "customerId": "SE-20110",
+      "name": "Sanjit Engle",
+      "segment": "Consumer",
+      "city": "New York City",
+      "state": "New York",
+      "totalSpent": 12209.44,
+      "totalProfitGenerated": 2650.68
+    },
+    {
+      "totalOrders": 5,
+      "customerId": "CC-12370",
+      "name": "Christopher Conant",
+      "segment": "Consumer",
+      "city": "Fayetteville",
+      "state": "North Carolina",
+      "totalSpent": 12129.07,
+      "totalProfitGenerated": 2177.05
+    }
+  ],
+  "productsByProfit": {
+    "top": [
+      {
+        "name": "Canon imageCLASS 2200 Advanced Copier",
+        "totalQuantity": 20,
+        "productId": "TEC-CO-10004722",
+        "totalProfit": 25199.93,
+        "totalSales": 61599.82
+      },
+      {
+        "name": "Fellowes PB500 Electric Punch Plastic Comb Binding Machine with Manual Bind",
+        "totalQuantity": 31,
+        "productId": "OFF-BI-10003527",
+        "totalProfit": 7753.04,
+        "totalSales": 27453.38
+      },
+      {
+        "name": "Hewlett Packard LaserJet 3310 Copier",
+        "totalQuantity": 38,
+        "productId": "TEC-CO-10001449",
+        "totalProfit": 6983.88,
+        "totalSales": 18839.69
+      },
+      {
+        "name": "Canon PC1060 Personal Laser Copier",
+        "totalQuantity": 19,
+        "productId": "TEC-CO-10003763",
+        "totalProfit": 4570.93,
+        "totalSales": 11619.83
+      },
+      {
+        "name": "Logitech G19 Programmable Gaming Keyboard",
+        "totalQuantity": 60,
+        "productId": "TEC-AC-10002049",
+        "totalProfit": 4425.34,
+        "totalSales": 13756.54
+      },
+      {
+        "name": "HP Designjet T520 Inkjet Large Format Printer - 24\" Color",
+        "totalQuantity": 12,
+        "productId": "TEC-MA-10001127",
+        "totalProfit": 4094.98,
+        "totalSales": 18374.9
+      },
+      {
+        "name": "Ativa V4110MDD Micro-Cut Shredder",
+        "totalQuantity": 11,
+        "productId": "TEC-MA-10003979",
+        "totalProfit": 3772.95,
+        "totalSales": 7699.89
+      },
+      {
+        "name": "3D Systems Cube Printer, 2nd Generation, Magenta",
+        "totalQuantity": 11,
+        "productId": "TEC-MA-10001047",
+        "totalProfit": 3717.97,
+        "totalSales": 14299.89
+      },
+      {
+        "name": "Ibico EPK-21 Electric Binding System",
+        "totalQuantity": 13,
+        "productId": "OFF-BI-10001120",
+        "totalProfit": 3345.28,
+        "totalSales": 15875.92
+      },
+      {
+        "name": "Zebra ZM400 Thermal Label Printer",
+        "totalQuantity": 6,
+        "productId": "TEC-MA-10000045",
+        "totalProfit": 3343.54,
+        "totalSales": 6965.7
+      }
+    ],
+    "bottom": [
+      {
+        "name": "Cubify CubeX 3D Printer Double Head Print",
+        "totalQuantity": 9,
+        "productId": "TEC-MA-10000418",
+        "totalProfit": -8879.97,
+        "totalSales": 11099.96
+      },
+      {
+        "name": "Lexmark MX611dhe Monochrome Laser Printer",
+        "totalQuantity": 18,
+        "productId": "TEC-MA-10000822",
+        "totalProfit": -4589.97,
+        "totalSales": 16829.9
+      },
+      {
+        "name": "Cubify CubeX 3D Printer Triple Head Print",
+        "totalQuantity": 4,
+        "productId": "TEC-MA-10004125",
+        "totalProfit": -3839.99,
+        "totalSales": 7999.98
+      },
+      {
+        "name": "Chromcraft Bull-Nose Wood Oval Conference Tables & Bases",
+        "totalQuantity": 27,
+        "productId": "FUR-TA-10000198",
+        "totalProfit": -2876.12,
+        "totalSales": 9917.64
+      },
+      {
+        "name": "Bush Advantage Collection Racetrack Conference Table",
+        "totalQuantity": 33,
+        "productId": "FUR-TA-10001889",
+        "totalProfit": -1934.4,
+        "totalSales": 9544.73
+      },
+      {
+        "name": "GBC DocuBind P400 Electric Binding System",
+        "totalQuantity": 27,
+        "productId": "OFF-BI-10004995",
+        "totalProfit": -1878.17,
+        "totalSales": 17965.07
+      },
+      {
+        "name": "Cisco TelePresence System EX90 Videoconferencing Unit",
+        "totalQuantity": 6,
+        "productId": "TEC-MA-10002412",
+        "totalProfit": -1811.08,
+        "totalSales": 22638.48
+      },
+      {
+        "name": "Martin Yale Chadless Opener Electric Letter Opener",
+        "totalQuantity": 22,
+        "productId": "OFF-SU-10002881",
+        "totalProfit": -1299.18,
+        "totalSales": 16656.2
+      },
+      {
+        "name": "Balt Solid Wood Round Tables",
+        "totalQuantity": 19,
+        "productId": "FUR-TA-10001950",
+        "totalProfit": -1201.06,
+        "totalSales": 6518.75
+      },
+      {
+        "name": "BoxOffice By Design Rectangular and Half-Moon Meeting Room Tables",
+        "totalQuantity": 15,
+        "productId": "FUR-TA-10004289",
+        "totalProfit": -1148.44,
+        "totalSales": 1706.25
+      }
+    ]
+  },
+  "profitByGeography": [
+    {
+      "states": [
+        {
+          "state": "Oregon",
+          "sales": 17431.15,
+          "profit": -1190.47,
+          "orders": 56
+        },
+        {
+          "state": "Arizona",
+          "sales": 35282,
+          "profit": -3427.92,
+          "orders": 108
+        },
+        {
+          "state": "Colorado",
+          "sales": 32108.12,
+          "profit": -6527.86,
+          "orders": 79
+        },
+        {
+          "state": "Montana",
+          "sales": 5589.35,
+          "profit": 1833.33,
+          "orders": 8
+        },
+        {
+          "state": "Utah",
+          "sales": 11220.06,
+          "profit": 2546.53,
+          "orders": 26
+        },
+        {
+          "state": "Wyoming",
+          "sales": 1603.14,
+          "profit": 100.2,
+          "orders": 1
+        },
+        {
+          "state": "Nevada",
+          "sales": 16729.1,
+          "profit": 3316.77,
+          "orders": 23
+        },
+        {
+          "state": "Idaho",
+          "sales": 4382.49,
+          "profit": 826.72,
+          "orders": 11
+        },
+        {
+          "state": "New Mexico",
+          "sales": 4783.52,
+          "profit": 1157.12,
+          "orders": 22
+        },
+        {
+          "state": "California",
+          "sales": 457687.63,
+          "profit": 76381.39,
+          "orders": 1021
+        },
+        {
+          "state": "Washington",
+          "sales": 138641.27,
+          "profit": 33402.65,
+          "orders": 256
+        }
+      ],
+      "region": "West",
+      "regionSales": 725457.82,
+      "regionProfit": 108418.45
+    },
+    {
+      "states": [
+        {
+          "state": "Massachusetts",
+          "sales": 28634.43,
+          "profit": 6785.5,
+          "orders": 62
+        },
+        {
+          "state": "Ohio",
+          "sales": 78258.14,
+          "profit": -16971.38,
+          "orders": 236
+        },
+        {
+          "state": "Maryland",
+          "sales": 23705.52,
+          "profit": 7031.18,
+          "orders": 46
+        },
+        {
+          "state": "Vermont",
+          "sales": 8929.37,
+          "profit": 2244.98,
+          "orders": 6
+        },
+        {
+          "state": "Rhode Island",
+          "sales": 22627.96,
+          "profit": 7285.63,
+          "orders": 25
+        },
+        {
+          "state": "New Hampshire",
+          "sales": 7292.52,
+          "profit": 1706.5,
+          "orders": 17
+        },
+        {
+          "state": "Connecticut",
+          "sales": 13384.36,
+          "profit": 3511.49,
+          "orders": 45
+        },
+        {
+          "state": "Pennsylvania",
+          "sales": 116511.91,
+          "profit": -15559.96,
+          "orders": 288
+        },
+        {
+          "state": "Delaware",
+          "sales": 27451.07,
+          "profit": 9977.37,
+          "orders": 44
+        },
+        {
+          "state": "New Jersey",
+          "sales": 35764.31,
+          "profit": 9772.91,
+          "orders": 61
+        },
+        {
+          "state": "District of Columbia",
+          "sales": 2865.02,
+          "profit": 1059.59,
+          "orders": 4
+        },
+        {
+          "state": "Maine",
+          "sales": 1270.53,
+          "profit": 454.49,
+          "orders": 3
+        },
+        {
+          "state": "West Virginia",
+          "sales": 1209.82,
+          "profit": 185.92,
+          "orders": 2
+        },
+        {
+          "state": "New York",
+          "sales": 310876.27,
+          "profit": 74038.55,
+          "orders": 562
+        }
+      ],
+      "region": "East",
+      "regionSales": 678781.24,
+      "regionProfit": 91522.78
+    },
+    {
+      "states": [
+        {
+          "state": "Virginia",
+          "sales": 70636.72,
+          "profit": 18597.95,
+          "orders": 115
+        },
+        {
+          "state": "Georgia",
+          "sales": 49095.84,
+          "profit": 16250.04,
+          "orders": 91
+        },
+        {
+          "state": "Florida",
+          "sales": 89473.71,
+          "profit": -3399.3,
+          "orders": 200
+        },
+        {
+          "state": "North Carolina",
+          "sales": 55603.16,
+          "profit": -7490.91,
+          "orders": 136
+        },
+        {
+          "state": "Tennessee",
+          "sales": 30661.87,
+          "profit": -5341.69,
+          "orders": 91
+        },
+        {
+          "state": "Arkansas",
+          "sales": 11678.13,
+          "profit": 4008.69,
+          "orders": 27
+        },
+        {
+          "state": "South Carolina",
+          "sales": 8481.71,
+          "profit": 1769.06,
+          "orders": 20
+        },
+        {
+          "state": "Louisiana",
+          "sales": 9217.03,
+          "profit": 2196.1,
+          "orders": 21
+        },
+        {
+          "state": "Mississippi",
+          "sales": 10771.34,
+          "profit": 3172.98,
+          "orders": 26
+        },
+        {
+          "state": "Kentucky",
+          "sales": 36591.75,
+          "profit": 11199.7,
+          "orders": 61
+        },
+        {
+          "state": "Alabama",
+          "sales": 19510.64,
+          "profit": 5786.83,
+          "orders": 34
+        }
+      ],
+      "region": "South",
+      "regionSales": 391721.91,
+      "regionProfit": 46749.43
+    },
+    {
+      "states": [
+        {
+          "state": "Wisconsin",
+          "sales": 32114.61,
+          "profit": 8401.8,
+          "orders": 53
+        },
+        {
+          "state": "Iowa",
+          "sales": 4579.76,
+          "profit": 1183.81,
+          "orders": 17
+        },
+        {
+          "state": "Illinois",
+          "sales": 80166.1,
+          "profit": -12607.89,
+          "orders": 276
+        },
+        {
+          "state": "Missouri",
+          "sales": 22205.15,
+          "profit": 6436.21,
+          "orders": 30
+        },
+        {
+          "state": "North Dakota",
+          "sales": 919.91,
+          "profit": 230.15,
+          "orders": 2
+        },
+        {
+          "state": "Indiana",
+          "sales": 53555.36,
+          "profit": 18382.94,
+          "orders": 73
+        },
+        {
+          "state": "South Dakota",
+          "sales": 1315.56,
+          "profit": 394.83,
+          "orders": 5
+        },
+        {
+          "state": "Oklahoma",
+          "sales": 19683.39,
+          "profit": 4853.96,
+          "orders": 34
+        },
+        {
+          "state": "Michigan",
+          "sales": 76269.61,
+          "profit": 24463.19,
+          "orders": 117
+        },
+        {
+          "state": "Texas",
+          "sales": 170188.05,
+          "profit": -25729.36,
+          "orders": 487
+        },
+        {
+          "state": "Kansas",
+          "sales": 2914.31,
+          "profit": 836.44,
+          "orders": 14
+        },
+        {
+          "state": "Nebraska",
+          "sales": 7464.93,
+          "profit": 2037.09,
+          "orders": 23
+        },
+        {
+          "state": "Minnesota",
+          "sales": 29863.15,
+          "profit": 10823.19,
+          "orders": 44
+        }
+      ],
+      "region": "Central",
+      "regionSales": 501239.89,
+      "regionProfit": 39706.36
+    }
+  ],
+  "discountImpact": [
+    {
+      "orderLines": 4798,
+      "lossMakingLines": 0,
+      "discountTier": "0% - 10%",
+      "totalSales": 1087908.47,
+      "totalProfit": 320987.6,
+      "lossPercentage": 0
+    },
+    {
+      "orderLines": 146,
+      "lossMakingLines": 21,
+      "discountTier": "10% - 20%",
+      "totalSales": 81927.87,
+      "totalProfit": 10448.17,
+      "lossPercentage": 14.4
+    },
+    {
+      "orderLines": 3657,
+      "lossMakingLines": 502,
+      "discountTier": "20% - 30%",
+      "totalSales": 764594.37,
+      "totalProfit": 90337.31,
+      "lossPercentage": 13.7
+    },
+    {
+      "orderLines": 471,
+      "lossMakingLines": 426,
+      "discountTier": "30% - 50%",
+      "totalSales": 239622.87,
+      "totalProfit": -38310.58,
+      "lossPercentage": 90.4
+    },
+    {
+      "orderLines": 922,
+      "lossMakingLines": 922,
+      "discountTier": "50% - 80%",
+      "totalSales": 123147.28,
+      "totalProfit": -97065.48,
+      "lossPercentage": 100
+    }
+  ],
+  "shippingTime": [
+    {
+      "minDays": 0,
+      "maxDays": 1,
+      "orderCount": 264,
+      "shipMode": "Same Day",
+      "avgDays": 0
+    },
+    {
+      "minDays": 1,
+      "maxDays": 4,
+      "orderCount": 787,
+      "shipMode": "First Class",
+      "avgDays": 2.2
+    },
+    {
+      "minDays": 1,
+      "maxDays": 5,
+      "orderCount": 964,
+      "shipMode": "Second Class",
+      "avgDays": 3.2
+    },
+    {
+      "minDays": 3,
+      "maxDays": 7,
+      "orderCount": 2994,
+      "shipMode": "Standard Class",
+      "avgDays": 5
+    }
+  ],
+  "salesBySegment": [
+    {
+      "totalOrders": 2586,
+      "segment": "Consumer",
+      "totalSales": 1161401.34,
+      "totalProfit": 134119.21,
+      "profitMargin": 11.55
+    },
+    {
+      "totalOrders": 1514,
+      "segment": "Corporate",
+      "totalSales": 706146.37,
+      "totalProfit": 91979.13,
+      "profitMargin": 13.03
+    },
+    {
+      "totalOrders": 909,
+      "segment": "Home Office",
+      "totalSales": 429653.15,
+      "totalProfit": 60298.68,
+      "profitMargin": 14.03
+    }
+  ],
+  "inventory": [
+    {
+      "productName": "Logitech�P710e Mobile Speakerphone",
+      "totalQuantitySold": 75,
+      "orderOccurrences": 18,
+      "productId": "TEC-AC-10003832",
+      "category": "Technology",
+      "subCategory": "Accessories",
+      "totalSalesVolume": 11203.76,
+      "totalProfit": 1987.93
+    },
+    {
+      "productName": "Xerox 1881",
+      "totalQuantitySold": 70,
+      "orderOccurrences": 19,
+      "productId": "OFF-PA-10001970",
+      "category": "Office Supplies",
+      "subCategory": "Paper",
+      "totalSalesVolume": 2167.35,
+      "totalProfit": 1006.44
+    },
+    {
+      "productName": "GBC Premium Transparent Covers with Diagonal Lined Pattern",
+      "totalQuantitySold": 67,
+      "orderOccurrences": 14,
+      "productId": "OFF-BI-10001524",
+      "category": "Office Supplies",
+      "subCategory": "Binders",
+      "totalSalesVolume": 780.46,
+      "totalProfit": 49.51
+    },
+    {
+      "productName": "Situations Contoured Folding Chairs, 4/Set",
+      "totalQuantitySold": 64,
+      "orderOccurrences": 15,
+      "productId": "FUR-CH-10002647",
+      "category": "Furniture",
+      "subCategory": "Chairs",
+      "totalSalesVolume": 3641.27,
+      "totalProfit": 234.23
+    },
+    {
+      "productName": "Avery Arch Ring Binders",
+      "totalQuantitySold": 64,
+      "orderOccurrences": 14,
+      "productId": "OFF-BI-10002026",
+      "category": "Office Supplies",
+      "subCategory": "Binders",
+      "totalSalesVolume": 2068.82,
+      "totalProfit": 349.63
+    },
+    {
+      "productName": "Chromcraft Round Conference Tables",
+      "totalQuantitySold": 61,
+      "orderOccurrences": 13,
+      "productId": "FUR-TA-10001095",
+      "category": "Furniture",
+      "subCategory": "Tables",
+      "totalSalesVolume": 8209.06,
+      "totalProfit": -189.98
+    },
+    {
+      "productName": "Logitech G19 Programmable Gaming Keyboard",
+      "totalQuantitySold": 60,
+      "orderOccurrences": 15,
+      "productId": "TEC-AC-10002049",
+      "category": "Technology",
+      "subCategory": "Accessories",
+      "totalSalesVolume": 13756.54,
+      "totalProfit": 4425.34
+    },
+    {
+      "productName": "Wilson Jones Turn Tabs Binder Tool for Ring Binders",
+      "totalQuantitySold": 59,
+      "orderOccurrences": 13,
+      "productId": "OFF-BI-10004728",
+      "category": "Office Supplies",
+      "subCategory": "Binders",
+      "totalSalesVolume": 212.08,
+      "totalProfit": 58.51
+    },
+    {
+      "productName": "Global Wood Trimmed Manager's Task Chair, Khaki",
+      "totalQuantitySold": 59,
+      "orderOccurrences": 14,
+      "productId": "FUR-CH-10003774",
+      "category": "Furniture",
+      "subCategory": "Chairs",
+      "totalSalesVolume": 4166.88,
+      "totalProfit": -503.12
+    },
+    {
+      "productName": "DAX Wood Document Frame",
+      "totalQuantitySold": 57,
+      "orderOccurrences": 14,
+      "productId": "FUR-FU-10001473",
+      "category": "Furniture",
+      "subCategory": "Furnishings",
+      "totalSalesVolume": 839.68,
+      "totalProfit": 176.32
+    },
+    {
+      "productName": "Kingston Digital DataTraveler 16GB USB 2.0",
+      "totalQuantitySold": 57,
+      "orderOccurrences": 13,
+      "productId": "TEC-AC-10003038",
+      "category": "Technology",
+      "subCategory": "Accessories",
+      "totalSalesVolume": 477.93,
+      "totalProfit": 64.71
+    },
+    {
+      "productName": "Fellowes Officeware Wire Shelving",
+      "totalQuantitySold": 55,
+      "orderOccurrences": 11,
+      "productId": "OFF-ST-10001809",
+      "category": "Office Supplies",
+      "subCategory": "Storage",
+      "totalSalesVolume": 4509.47,
+      "totalProfit": -332.37
+    },
+    {
+      "productName": "Global High-Back Leather Tilter, Burgundy",
+      "totalQuantitySold": 54,
+      "orderOccurrences": 14,
+      "productId": "FUR-CH-10002880",
+      "category": "Furniture",
+      "subCategory": "Chairs",
+      "totalSalesVolume": 5436.16,
+      "totalProfit": -474.74
+    },
+    {
+      "productName": "SAFCO Arco Folding Chair",
+      "totalQuantitySold": 53,
+      "orderOccurrences": 13,
+      "productId": "FUR-CH-10004287",
+      "category": "Furniture",
+      "subCategory": "Chairs",
+      "totalSalesVolume": 11572.78,
+      "totalProfit": 1179.37
+    },
+    {
+      "productName": "Xerox 226",
+      "totalQuantitySold": 53,
+      "orderOccurrences": 11,
+      "productId": "OFF-PA-10003441",
+      "category": "Office Supplies",
+      "subCategory": "Paper",
+      "totalSalesVolume": 334.37,
+      "totalProfit": 155.78
+    },
+    {
+      "productName": "Xerox 1916",
+      "totalQuantitySold": 52,
+      "orderOccurrences": 14,
+      "productId": "OFF-PA-10002377",
+      "category": "Office Supplies",
+      "subCategory": "Paper",
+      "totalSalesVolume": 1004.65,
+      "totalProfit": 415.28
+    },
+    {
+      "productName": "Logitech 910-002974 M325 Wireless Mouse for Web Scrolling",
+      "totalQuantitySold": 52,
+      "orderOccurrences": 15,
+      "productId": "TEC-AC-10003628",
+      "category": "Technology",
+      "subCategory": "Accessories",
+      "totalSalesVolume": 1409.53,
+      "totalProfit": 536.22
+    },
+    {
+      "productName": "I Need's 3d Hello Kitty Hybrid Silicone Case Cover for HTC One X 4g with 3d Hello Kitty Stylus Pen Green/pink",
+      "totalQuantitySold": 52,
+      "orderOccurrences": 10,
+      "productId": "TEC-PH-10001552",
+      "category": "Technology",
+      "subCategory": "Phones",
+      "totalSalesVolume": 542.98,
+      "totalProfit": 95.2
+    },
+    {
+      "productName": "GBC Standard Recycled Report Covers, Clear Plastic Sheets",
+      "totalQuantitySold": 51,
+      "orderOccurrences": 12,
+      "productId": "OFF-BI-10003676",
+      "category": "Office Supplies",
+      "subCategory": "Binders",
+      "totalSalesVolume": 258.72,
+      "totalProfit": -27.17
+    },
+    {
+      "productName": "Global Value Mid-Back Manager's Chair, Gray",
+      "totalQuantitySold": 51,
+      "orderOccurrences": 15,
+      "productId": "FUR-CH-10001146",
+      "category": "Furniture",
+      "subCategory": "Chairs",
+      "totalSalesVolume": 2442.02,
+      "totalProfit": 117.49
+    },
+    {
+      "productName": "Flat Face Poster Frame",
+      "totalQuantitySold": 51,
+      "orderOccurrences": 12,
+      "productId": "FUR-FU-10004973",
+      "category": "Furniture",
+      "subCategory": "Furnishings",
+      "totalSalesVolume": 678.24,
+      "totalProfit": 120.95
+    },
+    {
+      "productName": "Eldon Image Series Desk Accessories, Burgundy",
+      "totalQuantitySold": 51,
+      "orderOccurrences": 16,
+      "productId": "FUR-FU-10004270",
+      "category": "Furniture",
+      "subCategory": "Furnishings",
+      "totalSalesVolume": 426.56,
+      "totalProfit": 116.71
+    },
+    {
+      "productName": "Hon Deluxe Fabric Upholstered Stacking Chairs, Rounded Back",
+      "totalQuantitySold": 51,
+      "orderOccurrences": 12,
+      "productId": "FUR-CH-10000454",
+      "category": "Furniture",
+      "subCategory": "Chairs",
+      "totalSalesVolume": 10637.53,
+      "totalProfit": 1927.44
+    },
+    {
+      "productName": "Avery 485",
+      "totalQuantitySold": 51,
+      "orderOccurrences": 8,
+      "productId": "OFF-LA-10002762",
+      "category": "Office Supplies",
+      "subCategory": "Labels",
+      "totalSalesVolume": 639.03,
+      "totalProfit": 300.34
+    },
+    {
+      "productName": "Avery Durable Binders",
+      "totalQuantitySold": 50,
+      "orderOccurrences": 12,
+      "productId": "OFF-BI-10000546",
+      "category": "Office Supplies",
+      "subCategory": "Binders",
+      "totalSalesVolume": 87.26,
+      "totalProfit": 13.82
+    }
+  ],
+  "customers": [
+    {
+      "_id": "6ad1fbc0e42132bc35846d33",
+      "customerId": "CG-12520",
+      "name": "Claire Gute",
+      "segment": "Consumer",
+      "address": {
+        "city": "Henderson",
+        "state": "Kentucky",
+        "postalCode": "42420",
+        "region": "South"
+      },
+      "createdAt": "2026-10-16T10:26:08.546Z",
+      "updatedAt": "2026-10-16T10:26:08.546Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d34",
+      "customerId": "DV-13045",
+      "name": "Darrin Van Huff",
+      "segment": "Corporate",
+      "address": {
+        "city": "Los Angeles",
+        "state": "California",
+        "postalCode": "90036",
+        "region": "West"
+      },
+      "createdAt": "2026-10-16T10:26:08.550Z",
+      "updatedAt": "2026-10-16T10:26:08.550Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d35",
+      "customerId": "SO-20335",
+      "name": "Sean O'Donnell",
+      "segment": "Consumer",
+      "address": {
+        "city": "Fort Lauderdale",
+        "state": "Florida",
+        "postalCode": "33311",
+        "region": "South"
+      },
+      "createdAt": "2026-10-16T10:26:08.550Z",
+      "updatedAt": "2026-10-16T10:26:08.550Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d36",
+      "customerId": "BH-11710",
+      "name": "Brosina Hoffman",
+      "segment": "Consumer",
+      "address": {
+        "city": "Los Angeles",
+        "state": "California",
+        "postalCode": "90032",
+        "region": "West"
+      },
+      "createdAt": "2026-10-16T10:26:08.550Z",
+      "updatedAt": "2026-10-16T10:26:08.550Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d37",
+      "customerId": "AA-10480",
+      "name": "Andrew Allen",
+      "segment": "Consumer",
+      "address": {
+        "city": "Concord",
+        "state": "North Carolina",
+        "postalCode": "28027",
+        "region": "South"
+      },
+      "createdAt": "2026-10-16T10:26:08.550Z",
+      "updatedAt": "2026-10-16T10:26:08.550Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d38",
+      "customerId": "IM-15070",
+      "name": "Irene Maddox",
+      "segment": "Consumer",
+      "address": {
+        "city": "Seattle",
+        "state": "Washington",
+        "postalCode": "98103",
+        "region": "West"
+      },
+      "createdAt": "2026-10-16T10:26:08.550Z",
+      "updatedAt": "2026-10-16T10:26:08.550Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d39",
+      "customerId": "HP-14815",
+      "name": "Harold Pawlan",
+      "segment": "Home Office",
+      "address": {
+        "city": "Fort Worth",
+        "state": "Texas",
+        "postalCode": "76106",
+        "region": "Central"
+      },
+      "createdAt": "2026-10-16T10:26:08.550Z",
+      "updatedAt": "2026-10-16T10:26:08.550Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d3a",
+      "customerId": "PK-19075",
+      "name": "Pete Kriz",
+      "segment": "Consumer",
+      "address": {
+        "city": "Madison",
+        "state": "Wisconsin",
+        "postalCode": "53711",
+        "region": "Central"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d3b",
+      "customerId": "AG-10270",
+      "name": "Alejandro Grove",
+      "segment": "Consumer",
+      "address": {
+        "city": "West Jordan",
+        "state": "Utah",
+        "postalCode": "84084",
+        "region": "West"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d3c",
+      "customerId": "ZD-21925",
+      "name": "Zuschuss Donatelli",
+      "segment": "Consumer",
+      "address": {
+        "city": "San Francisco",
+        "state": "California",
+        "postalCode": "94109",
+        "region": "West"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d3d",
+      "customerId": "KB-16585",
+      "name": "Ken Black",
+      "segment": "Corporate",
+      "address": {
+        "city": "Fremont",
+        "state": "Nebraska",
+        "postalCode": "68025",
+        "region": "Central"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d3e",
+      "customerId": "SF-20065",
+      "name": "Sandra Flanagan",
+      "segment": "Consumer",
+      "address": {
+        "city": "Philadelphia",
+        "state": "Pennsylvania",
+        "postalCode": "19140",
+        "region": "East"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d3f",
+      "customerId": "EB-13870",
+      "name": "Emily Burns",
+      "segment": "Consumer",
+      "address": {
+        "city": "Orem",
+        "state": "Utah",
+        "postalCode": "84057",
+        "region": "West"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d40",
+      "customerId": "EH-13945",
+      "name": "Eric Hoffmann",
+      "segment": "Consumer",
+      "address": {
+        "city": "Los Angeles",
+        "state": "California",
+        "postalCode": "90049",
+        "region": "West"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d41",
+      "customerId": "TB-21520",
+      "name": "Tracy Blumstein",
+      "segment": "Consumer",
+      "address": {
+        "city": "Philadelphia",
+        "state": "Pennsylvania",
+        "postalCode": "19140",
+        "region": "East"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d42",
+      "customerId": "MA-17560",
+      "name": "Matt Abelman",
+      "segment": "Home Office",
+      "address": {
+        "city": "Houston",
+        "state": "Texas",
+        "postalCode": "77095",
+        "region": "Central"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d43",
+      "customerId": "GH-14485",
+      "name": "Gene Hale",
+      "segment": "Corporate",
+      "address": {
+        "city": "Richardson",
+        "state": "Texas",
+        "postalCode": "75080",
+        "region": "Central"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d44",
+      "customerId": "SN-20710",
+      "name": "Steve Nguyen",
+      "segment": "Home Office",
+      "address": {
+        "city": "Houston",
+        "state": "Texas",
+        "postalCode": "77041",
+        "region": "Central"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d45",
+      "customerId": "LC-16930",
+      "name": "Linda Cazamias",
+      "segment": "Corporate",
+      "address": {
+        "city": "Naperville",
+        "state": "Illinois",
+        "postalCode": "60540",
+        "region": "Central"
+      },
+      "createdAt": "2026-10-16T10:26:08.551Z",
+      "updatedAt": "2026-10-16T10:26:08.551Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d46",
+      "customerId": "RA-19885",
+      "name": "Ruben Ausman",
+      "segment": "Corporate",
+      "address": {
+        "city": "Los Angeles",
+        "state": "California",
+        "postalCode": "90049",
+        "region": "West"
+      },
+      "createdAt": "2026-10-16T10:26:08.552Z",
+      "updatedAt": "2026-10-16T10:26:08.552Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d47",
+      "customerId": "ES-14080",
+      "name": "Erin Smith",
+      "segment": "Corporate",
+      "address": {
+        "city": "Melbourne",
+        "state": "Florida",
+        "postalCode": "32935",
+        "region": "South"
+      },
+      "createdAt": "2026-10-16T10:26:08.552Z",
+      "updatedAt": "2026-10-16T10:26:08.552Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d48",
+      "customerId": "ON-18715",
+      "name": "Odella Nelson",
+      "segment": "Corporate",
+      "address": {
+        "city": "Eagan",
+        "state": "Minnesota",
+        "postalCode": "55122",
+        "region": "Central"
+      },
+      "createdAt": "2026-10-16T10:26:08.552Z",
+      "updatedAt": "2026-10-16T10:26:08.552Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d49",
+      "customerId": "PO-18865",
+      "name": "Patrick O'Donnell",
+      "segment": "Consumer",
+      "address": {
+        "city": "Westland",
+        "state": "Michigan",
+        "postalCode": "48185",
+        "region": "Central"
+      },
+      "createdAt": "2026-10-16T10:26:08.552Z",
+      "updatedAt": "2026-10-16T10:26:08.552Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d4a",
+      "customerId": "LH-16900",
+      "name": "Lena Hernandez",
+      "segment": "Consumer",
+      "address": {
+        "city": "Dover",
+        "state": "Delaware",
+        "postalCode": "19901",
+        "region": "East"
+      },
+      "createdAt": "2026-10-16T10:26:08.552Z",
+      "updatedAt": "2026-10-16T10:26:08.552Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35846d4b",
+      "customerId": "DP-13000",
+      "name": "Darren Powers",
+      "segment": "Consumer",
+      "address": {
+        "city": "New Albany",
+        "state": "Indiana",
+        "postalCode": "47150",
+        "region": "Central"
+      },
+      "createdAt": "2026-10-16T10:26:08.552Z",
+      "updatedAt": "2026-10-16T10:26:08.552Z"
+    }
+  ],
+  "products": [
+    {
+      "_id": "6ad1fbc0e42132bc3584704d",
+      "productId": "FUR-BO-10001798",
+      "name": "Bush Somerset Collection Bookcase",
+      "category": "Furniture",
+      "subCategory": "Bookcases",
+      "createdAt": "2026-10-16T10:26:08.928Z",
+      "updatedAt": "2026-10-16T10:26:08.928Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc3584704e",
+      "productId": "FUR-CH-10000454",
+      "name": "Hon Deluxe Fabric Upholstered Stacking Chairs, Rounded Back",
+      "category": "Furniture",
+      "subCategory": "Chairs",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc3584704f",
+      "productId": "OFF-LA-10000240",
+      "name": "Self-Adhesive Address Labels for Typewriters by Universal",
+      "category": "Office Supplies",
+      "subCategory": "Labels",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847050",
+      "productId": "FUR-TA-10000577",
+      "name": "Bretford CR4500 Series Slim Rectangular Table",
+      "category": "Furniture",
+      "subCategory": "Tables",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847051",
+      "productId": "OFF-ST-10000760",
+      "name": "Eldon Fold 'N Roll Cart System",
+      "category": "Office Supplies",
+      "subCategory": "Storage",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847052",
+      "productId": "FUR-FU-10001487",
+      "name": "Eldon Expressions Wood and Plastic Desk Accessories, Cherry Wood",
+      "category": "Furniture",
+      "subCategory": "Furnishings",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847053",
+      "productId": "OFF-AR-10002833",
+      "name": "Newell 322",
+      "category": "Office Supplies",
+      "subCategory": "Art",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847054",
+      "productId": "TEC-PH-10002275",
+      "name": "Mitel 5320 IP Phone VoIP phone",
+      "category": "Technology",
+      "subCategory": "Phones",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847055",
+      "productId": "OFF-BI-10003910",
+      "name": "DXL Angle-View Binders with Locking Rings by Samsill",
+      "category": "Office Supplies",
+      "subCategory": "Binders",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847056",
+      "productId": "OFF-AP-10002892",
+      "name": "Belkin F5C206VTEL 6 Outlet Surge",
+      "category": "Office Supplies",
+      "subCategory": "Appliances",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847057",
+      "productId": "FUR-TA-10001539",
+      "name": "Chromcraft Rectangular Conference Tables",
+      "category": "Furniture",
+      "subCategory": "Tables",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847058",
+      "productId": "TEC-PH-10002033",
+      "name": "Konftel 250 Conference�phone�- Charcoal black",
+      "category": "Technology",
+      "subCategory": "Phones",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847059",
+      "productId": "OFF-PA-10002365",
+      "name": "Xerox 1967",
+      "category": "Office Supplies",
+      "subCategory": "Paper",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc3584705a",
+      "productId": "OFF-BI-10003656",
+      "name": "Fellowes PB200 Plastic Comb Binding Machine",
+      "category": "Office Supplies",
+      "subCategory": "Binders",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc3584705b",
+      "productId": "OFF-AP-10002311",
+      "name": "Holmes Replacement Filter for HEPA Air Cleaner, Very Large Room, HEPA Filter",
+      "category": "Office Supplies",
+      "subCategory": "Appliances",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc3584705c",
+      "productId": "OFF-BI-10000756",
+      "name": "Storex DuraTech Recycled Plastic Frosted Binders",
+      "category": "Office Supplies",
+      "subCategory": "Binders",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc3584705d",
+      "productId": "OFF-ST-10004186",
+      "name": "Stur-D-Stor Shelving, Vertical 5-Shelf: 72\"H x 36\"W x 18 1/2\"D",
+      "category": "Office Supplies",
+      "subCategory": "Storage",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc3584705e",
+      "productId": "OFF-ST-10000107",
+      "name": "Fellowes Super Stor/Drawer",
+      "category": "Office Supplies",
+      "subCategory": "Storage",
+      "createdAt": "2026-10-16T10:26:08.929Z",
+      "updatedAt": "2026-10-16T10:26:08.929Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc3584705f",
+      "productId": "OFF-AR-10003056",
+      "name": "Newell 341",
+      "category": "Office Supplies",
+      "subCategory": "Art",
+      "createdAt": "2026-10-16T10:26:08.930Z",
+      "updatedAt": "2026-10-16T10:26:08.930Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847060",
+      "productId": "TEC-PH-10001949",
+      "name": "Cisco SPA 501G IP Phone",
+      "category": "Technology",
+      "subCategory": "Phones",
+      "createdAt": "2026-10-16T10:26:08.930Z",
+      "updatedAt": "2026-10-16T10:26:08.930Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847061",
+      "productId": "OFF-BI-10002215",
+      "name": "Wilson Jones Hanging View Binder, White, 1\"",
+      "category": "Office Supplies",
+      "subCategory": "Binders",
+      "createdAt": "2026-10-16T10:26:08.930Z",
+      "updatedAt": "2026-10-16T10:26:08.930Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847062",
+      "productId": "OFF-AR-10000246",
+      "name": "Newell 318",
+      "category": "Office Supplies",
+      "subCategory": "Art",
+      "createdAt": "2026-10-16T10:26:08.930Z",
+      "updatedAt": "2026-10-16T10:26:08.930Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847063",
+      "productId": "OFF-AP-10001492",
+      "name": "Acco Six-Outlet Power Strip, 4' Cord Length",
+      "category": "Office Supplies",
+      "subCategory": "Appliances",
+      "createdAt": "2026-10-16T10:26:08.930Z",
+      "updatedAt": "2026-10-16T10:26:08.930Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847064",
+      "productId": "FUR-CH-10002774",
+      "name": "Global Deluxe Stacking Chair, Gray",
+      "category": "Furniture",
+      "subCategory": "Chairs",
+      "createdAt": "2026-10-16T10:26:08.930Z",
+      "updatedAt": "2026-10-16T10:26:08.930Z"
+    },
+    {
+      "_id": "6ad1fbc0e42132bc35847065",
+      "productId": "OFF-BI-10001634",
+      "name": "Wilson Jones Active Use Binders",
+      "category": "Office Supplies",
+      "subCategory": "Binders",
+      "createdAt": "2026-10-16T10:26:08.930Z",
+      "updatedAt": "2026-10-16T10:26:08.930Z"
+    }
+  ],
+  "orders": [
+    {
+      "_id": "6ad1fbc1e42132bc35847794",
+      "orderId": "CA-2016-152156",
+      "customerId": "CG-12520",
+      "orderDate": "2016-11-08T00:00:00.000Z",
+      "shipDate": "2016-11-11T00:00:00.000Z",
+      "shipMode": "Second Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Henderson",
+        "state": "Kentucky",
+        "postalCode": "42420",
+        "region": "South"
+      },
+      "items": [
+        {
+          "productId": "FUR-BO-10001798",
+          "productName": "Bush Somerset Collection Bookcase",
+          "sales": 261.96,
+          "quantity": 2,
+          "discount": 0,
+          "profit": 41.9136
+        },
+        {
+          "productId": "FUR-CH-10000454",
+          "productName": "Hon Deluxe Fabric Upholstered Stacking Chairs, Rounded Back",
+          "sales": 731.94,
+          "quantity": 3,
+          "discount": 0,
+          "profit": 219.582
+        }
+      ],
+      "totals": {
+        "sales": 993.9,
+        "profit": 261.4956,
+        "quantity": 5
+      },
+      "createdAt": "2026-10-16T10:26:10.291Z",
+      "updatedAt": "2026-10-16T10:26:10.291Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc35847795",
+      "orderId": "CA-2016-138688",
+      "customerId": "DV-13045",
+      "orderDate": "2016-06-12T00:00:00.000Z",
+      "shipDate": "2016-06-16T00:00:00.000Z",
+      "shipMode": "Second Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Los Angeles",
+        "state": "California",
+        "postalCode": "90036",
+        "region": "West"
+      },
+      "items": [
+        {
+          "productId": "OFF-LA-10000240",
+          "productName": "Self-Adhesive Address Labels for Typewriters by Universal",
+          "sales": 14.62,
+          "quantity": 2,
+          "discount": 0,
+          "profit": 6.8714
+        }
+      ],
+      "totals": {
+        "sales": 14.62,
+        "profit": 6.8714,
+        "quantity": 2
+      },
+      "createdAt": "2026-10-16T10:26:10.292Z",
+      "updatedAt": "2026-10-16T10:26:10.292Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc35847796",
+      "orderId": "US-2015-108966",
+      "customerId": "SO-20335",
+      "orderDate": "2015-10-11T00:00:00.000Z",
+      "shipDate": "2015-10-18T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Fort Lauderdale",
+        "state": "Florida",
+        "postalCode": "33311",
+        "region": "South"
+      },
+      "items": [
+        {
+          "productId": "FUR-TA-10000577",
+          "productName": "Bretford CR4500 Series Slim Rectangular Table",
+          "sales": 957.5775,
+          "quantity": 5,
+          "discount": 0.45,
+          "profit": -383.031
+        },
+        {
+          "productId": "OFF-ST-10000760",
+          "productName": "Eldon Fold 'N Roll Cart System",
+          "sales": 22.368,
+          "quantity": 2,
+          "discount": 0.2,
+          "profit": 2.5164
+        }
+      ],
+      "totals": {
+        "sales": 979.9455,
+        "profit": -380.5146,
+        "quantity": 7
+      },
+      "createdAt": "2026-10-16T10:26:10.292Z",
+      "updatedAt": "2026-10-16T10:26:10.292Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc35847797",
+      "orderId": "CA-2014-115812",
+      "customerId": "BH-11710",
+      "orderDate": "2014-06-09T00:00:00.000Z",
+      "shipDate": "2014-06-14T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Los Angeles",
+        "state": "California",
+        "postalCode": "90032",
+        "region": "West"
+      },
+      "items": [
+        {
+          "productId": "FUR-FU-10001487",
+          "productName": "Eldon Expressions Wood and Plastic Desk Accessories, Cherry Wood",
+          "sales": 48.86,
+          "quantity": 7,
+          "discount": 0,
+          "profit": 14.1694
+        },
+        {
+          "productId": "OFF-AR-10002833",
+          "productName": "Newell 322",
+          "sales": 7.28,
+          "quantity": 4,
+          "discount": 0,
+          "profit": 1.9656
+        },
+        {
+          "productId": "TEC-PH-10002275",
+          "productName": "Mitel 5320 IP Phone VoIP phone",
+          "sales": 907.152,
+          "quantity": 6,
+          "discount": 0.2,
+          "profit": 90.7152
+        },
+        {
+          "productId": "OFF-BI-10003910",
+          "productName": "DXL Angle-View Binders with Locking Rings by Samsill",
+          "sales": 18.504,
+          "quantity": 3,
+          "discount": 0.2,
+          "profit": 5.7825
+        },
+        {
+          "productId": "OFF-AP-10002892",
+          "productName": "Belkin F5C206VTEL 6 Outlet Surge",
+          "sales": 114.9,
+          "quantity": 5,
+          "discount": 0,
+          "profit": 34.47
+        },
+        {
+          "productId": "FUR-TA-10001539",
+          "productName": "Chromcraft Rectangular Conference Tables",
+          "sales": 1706.184,
+          "quantity": 9,
+          "discount": 0.2,
+          "profit": 85.3092
+        },
+        {
+          "productId": "TEC-PH-10002033",
+          "productName": "Konftel 250 Conference�phone�- Charcoal black",
+          "sales": 911.424,
+          "quantity": 4,
+          "discount": 0.2,
+          "profit": 68.3568
+        }
+      ],
+      "totals": {
+        "sales": 3714.304,
+        "profit": 300.7687,
+        "quantity": 38
+      },
+      "createdAt": "2026-10-16T10:26:10.292Z",
+      "updatedAt": "2026-10-16T10:26:10.292Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc35847798",
+      "orderId": "CA-2017-114412",
+      "customerId": "AA-10480",
+      "orderDate": "2017-04-15T00:00:00.000Z",
+      "shipDate": "2017-04-20T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Concord",
+        "state": "North Carolina",
+        "postalCode": "28027",
+        "region": "South"
+      },
+      "items": [
+        {
+          "productId": "OFF-PA-10002365",
+          "productName": "Xerox 1967",
+          "sales": 15.552,
+          "quantity": 3,
+          "discount": 0.2,
+          "profit": 5.4432
+        }
+      ],
+      "totals": {
+        "sales": 15.552,
+        "profit": 5.4432,
+        "quantity": 3
+      },
+      "createdAt": "2026-10-16T10:26:10.293Z",
+      "updatedAt": "2026-10-16T10:26:10.293Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc35847799",
+      "orderId": "CA-2016-161389",
+      "customerId": "IM-15070",
+      "orderDate": "2016-12-05T00:00:00.000Z",
+      "shipDate": "2016-12-10T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Seattle",
+        "state": "Washington",
+        "postalCode": "98103",
+        "region": "West"
+      },
+      "items": [
+        {
+          "productId": "OFF-BI-10003656",
+          "productName": "Fellowes PB200 Plastic Comb Binding Machine",
+          "sales": 407.976,
+          "quantity": 3,
+          "discount": 0.2,
+          "profit": 132.5922
+        }
+      ],
+      "totals": {
+        "sales": 407.976,
+        "profit": 132.5922,
+        "quantity": 3
+      },
+      "createdAt": "2026-10-16T10:26:10.293Z",
+      "updatedAt": "2026-10-16T10:26:10.293Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc3584779a",
+      "orderId": "US-2015-118983",
+      "customerId": "HP-14815",
+      "orderDate": "2015-11-22T00:00:00.000Z",
+      "shipDate": "2015-11-26T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Fort Worth",
+        "state": "Texas",
+        "postalCode": "76106",
+        "region": "Central"
+      },
+      "items": [
+        {
+          "productId": "OFF-AP-10002311",
+          "productName": "Holmes Replacement Filter for HEPA Air Cleaner, Very Large Room, HEPA Filter",
+          "sales": 68.81,
+          "quantity": 5,
+          "discount": 0.8,
+          "profit": -123.858
+        },
+        {
+          "productId": "OFF-BI-10000756",
+          "productName": "Storex DuraTech Recycled Plastic Frosted Binders",
+          "sales": 2.544,
+          "quantity": 3,
+          "discount": 0.8,
+          "profit": -3.816
+        }
+      ],
+      "totals": {
+        "sales": 71.354,
+        "profit": -127.674,
+        "quantity": 8
+      },
+      "createdAt": "2026-10-16T10:26:10.293Z",
+      "updatedAt": "2026-10-16T10:26:10.293Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc3584779b",
+      "orderId": "CA-2014-105893",
+      "customerId": "PK-19075",
+      "orderDate": "2014-11-11T00:00:00.000Z",
+      "shipDate": "2014-11-18T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Madison",
+        "state": "Wisconsin",
+        "postalCode": "53711",
+        "region": "Central"
+      },
+      "items": [
+        {
+          "productId": "OFF-ST-10004186",
+          "productName": "Stur-D-Stor Shelving, Vertical 5-Shelf: 72\"H x 36\"W x 18 1/2\"D",
+          "sales": 665.88,
+          "quantity": 6,
+          "discount": 0,
+          "profit": 13.3176
+        }
+      ],
+      "totals": {
+        "sales": 665.88,
+        "profit": 13.3176,
+        "quantity": 6
+      },
+      "createdAt": "2026-10-16T10:26:10.293Z",
+      "updatedAt": "2026-10-16T10:26:10.293Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc3584779c",
+      "orderId": "CA-2014-167164",
+      "customerId": "AG-10270",
+      "orderDate": "2014-05-13T00:00:00.000Z",
+      "shipDate": "2014-05-15T00:00:00.000Z",
+      "shipMode": "Second Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "West Jordan",
+        "state": "Utah",
+        "postalCode": "84084",
+        "region": "West"
+      },
+      "items": [
+        {
+          "productId": "OFF-ST-10000107",
+          "productName": "Fellowes Super Stor/Drawer",
+          "sales": 55.5,
+          "quantity": 2,
+          "discount": 0,
+          "profit": 9.99
+        }
+      ],
+      "totals": {
+        "sales": 55.5,
+        "profit": 9.99,
+        "quantity": 2
+      },
+      "createdAt": "2026-10-16T10:26:10.293Z",
+      "updatedAt": "2026-10-16T10:26:10.293Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc3584779d",
+      "orderId": "CA-2014-143336",
+      "customerId": "ZD-21925",
+      "orderDate": "2014-08-27T00:00:00.000Z",
+      "shipDate": "2014-09-01T00:00:00.000Z",
+      "shipMode": "Second Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "San Francisco",
+        "state": "California",
+        "postalCode": "94109",
+        "region": "West"
+      },
+      "items": [
+        {
+          "productId": "OFF-AR-10003056",
+          "productName": "Newell 341",
+          "sales": 8.56,
+          "quantity": 2,
+          "discount": 0,
+          "profit": 2.4824
+        },
+        {
+          "productId": "TEC-PH-10001949",
+          "productName": "Cisco SPA 501G IP Phone",
+          "sales": 213.48,
+          "quantity": 3,
+          "discount": 0.2,
+          "profit": 16.011
+        },
+        {
+          "productId": "OFF-BI-10002215",
+          "productName": "Wilson Jones Hanging View Binder, White, 1\"",
+          "sales": 22.72,
+          "quantity": 4,
+          "discount": 0.2,
+          "profit": 7.384
+        }
+      ],
+      "totals": {
+        "sales": 244.76,
+        "profit": 25.8774,
+        "quantity": 9
+      },
+      "createdAt": "2026-10-16T10:26:10.293Z",
+      "updatedAt": "2026-10-16T10:26:10.293Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc3584779e",
+      "orderId": "CA-2016-137330",
+      "customerId": "KB-16585",
+      "orderDate": "2016-12-09T00:00:00.000Z",
+      "shipDate": "2016-12-13T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Fremont",
+        "state": "Nebraska",
+        "postalCode": "68025",
+        "region": "Central"
+      },
+      "items": [
+        {
+          "productId": "OFF-AR-10000246",
+          "productName": "Newell 318",
+          "sales": 19.46,
+          "quantity": 7,
+          "discount": 0,
+          "profit": 5.0596
+        },
+        {
+          "productId": "OFF-AP-10001492",
+          "productName": "Acco Six-Outlet Power Strip, 4' Cord Length",
+          "sales": 60.34,
+          "quantity": 7,
+          "discount": 0,
+          "profit": 15.6884
+        }
+      ],
+      "totals": {
+        "sales": 79.8,
+        "profit": 20.748,
+        "quantity": 14
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc3584779f",
+      "orderId": "US-2017-156909",
+      "customerId": "SF-20065",
+      "orderDate": "2017-07-16T00:00:00.000Z",
+      "shipDate": "2017-07-18T00:00:00.000Z",
+      "shipMode": "Second Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Philadelphia",
+        "state": "Pennsylvania",
+        "postalCode": "19140",
+        "region": "East"
+      },
+      "items": [
+        {
+          "productId": "FUR-CH-10002774",
+          "productName": "Global Deluxe Stacking Chair, Gray",
+          "sales": 71.372,
+          "quantity": 2,
+          "discount": 0.3,
+          "profit": -1.0196
+        }
+      ],
+      "totals": {
+        "sales": 71.372,
+        "profit": -1.0196,
+        "quantity": 2
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477a0",
+      "orderId": "CA-2015-106320",
+      "customerId": "EB-13870",
+      "orderDate": "2015-09-25T00:00:00.000Z",
+      "shipDate": "2015-09-30T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Orem",
+        "state": "Utah",
+        "postalCode": "84057",
+        "region": "West"
+      },
+      "items": [
+        {
+          "productId": "FUR-TA-10000577",
+          "productName": "Bretford CR4500 Series Slim Rectangular Table",
+          "sales": 1044.63,
+          "quantity": 3,
+          "discount": 0,
+          "profit": 240.2649
+        }
+      ],
+      "totals": {
+        "sales": 1044.63,
+        "profit": 240.2649,
+        "quantity": 3
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477a1",
+      "orderId": "CA-2016-121755",
+      "customerId": "EH-13945",
+      "orderDate": "2016-01-16T00:00:00.000Z",
+      "shipDate": "2016-01-20T00:00:00.000Z",
+      "shipMode": "Second Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Los Angeles",
+        "state": "California",
+        "postalCode": "90049",
+        "region": "West"
+      },
+      "items": [
+        {
+          "productId": "OFF-BI-10001634",
+          "productName": "Wilson Jones Active Use Binders",
+          "sales": 11.648,
+          "quantity": 2,
+          "discount": 0.2,
+          "profit": 4.2224
+        },
+        {
+          "productId": "TEC-AC-10003027",
+          "productName": "Imation�8GB Mini TravelDrive USB 2.0�Flash Drive",
+          "sales": 90.57,
+          "quantity": 3,
+          "discount": 0,
+          "profit": 11.7741
+        }
+      ],
+      "totals": {
+        "sales": 102.218,
+        "profit": 15.9965,
+        "quantity": 5
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477a2",
+      "orderId": "US-2015-150630",
+      "customerId": "TB-21520",
+      "orderDate": "2015-09-17T00:00:00.000Z",
+      "shipDate": "2015-09-21T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Philadelphia",
+        "state": "Pennsylvania",
+        "postalCode": "19140",
+        "region": "East"
+      },
+      "items": [
+        {
+          "productId": "FUR-BO-10004834",
+          "productName": "Riverside Palais Royal Lawyers Bookcase, Royale Cherry Finish",
+          "sales": 3083.43,
+          "quantity": 7,
+          "discount": 0.5,
+          "profit": -1665.0522
+        },
+        {
+          "productId": "OFF-BI-10000474",
+          "productName": "Avery Recycled Flexi-View Covers for Binding Systems",
+          "sales": 9.618,
+          "quantity": 2,
+          "discount": 0.7,
+          "profit": -7.0532
+        },
+        {
+          "productId": "FUR-FU-10004848",
+          "productName": "Howard Miller 13-3/4\" Diameter Brushed Chrome Round Wall Clock",
+          "sales": 124.2,
+          "quantity": 3,
+          "discount": 0.2,
+          "profit": 15.525
+        },
+        {
+          "productId": "OFF-EN-10001509",
+          "productName": "Poly String Tie Envelopes",
+          "sales": 3.264,
+          "quantity": 2,
+          "discount": 0.2,
+          "profit": 1.1016
+        },
+        {
+          "productId": "OFF-AR-10004042",
+          "productName": "BOSTON Model 1800 Electric Pencil Sharpeners, Putty/Woodgrain",
+          "sales": 86.304,
+          "quantity": 6,
+          "discount": 0.2,
+          "profit": 9.7092
+        },
+        {
+          "productId": "OFF-BI-10001525",
+          "productName": "Acco Pressboard Covers with Storage Hooks, 14 7/8\" x 11\", Executive Red",
+          "sales": 6.858,
+          "quantity": 6,
+          "discount": 0.7,
+          "profit": -5.715
+        },
+        {
+          "productId": "OFF-AR-10001683",
+          "productName": "Lumber Crayons",
+          "sales": 15.76,
+          "quantity": 2,
+          "discount": 0.2,
+          "profit": 3.546
+        }
+      ],
+      "totals": {
+        "sales": 3329.434,
+        "profit": -1647.9386,
+        "quantity": 28
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477a3",
+      "orderId": "CA-2017-107727",
+      "customerId": "MA-17560",
+      "orderDate": "2017-10-19T00:00:00.000Z",
+      "shipDate": "2017-10-23T00:00:00.000Z",
+      "shipMode": "Second Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Houston",
+        "state": "Texas",
+        "postalCode": "77095",
+        "region": "Central"
+      },
+      "items": [
+        {
+          "productId": "OFF-PA-10000249",
+          "productName": "Easy-staple paper",
+          "sales": 29.472,
+          "quantity": 3,
+          "discount": 0.2,
+          "profit": 9.9468
+        }
+      ],
+      "totals": {
+        "sales": 29.472,
+        "profit": 9.9468,
+        "quantity": 3
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477a4",
+      "orderId": "CA-2016-117590",
+      "customerId": "GH-14485",
+      "orderDate": "2016-12-08T00:00:00.000Z",
+      "shipDate": "2016-12-10T00:00:00.000Z",
+      "shipMode": "First Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Richardson",
+        "state": "Texas",
+        "postalCode": "75080",
+        "region": "Central"
+      },
+      "items": [
+        {
+          "productId": "TEC-PH-10004977",
+          "productName": "GE 30524EE4",
+          "sales": 1097.544,
+          "quantity": 7,
+          "discount": 0.2,
+          "profit": 123.4737
+        },
+        {
+          "productId": "FUR-FU-10003664",
+          "productName": "Electrix Architect's Clamp-On Swing Arm Lamp, Black",
+          "sales": 190.92,
+          "quantity": 5,
+          "discount": 0.6,
+          "profit": -147.963
+        }
+      ],
+      "totals": {
+        "sales": 1288.464,
+        "profit": -24.4893,
+        "quantity": 12
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477a5",
+      "orderId": "CA-2015-117415",
+      "customerId": "SN-20710",
+      "orderDate": "2015-12-27T00:00:00.000Z",
+      "shipDate": "2015-12-31T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Houston",
+        "state": "Texas",
+        "postalCode": "77041",
+        "region": "Central"
+      },
+      "items": [
+        {
+          "productId": "OFF-EN-10002986",
+          "productName": "#10-4 1/8\" x 9 1/2\" Premium Diagonal Seam Envelopes",
+          "sales": 113.328,
+          "quantity": 9,
+          "discount": 0.2,
+          "profit": 35.415
+        },
+        {
+          "productId": "FUR-BO-10002545",
+          "productName": "Atlantic Metals Mobile 3-Shelf Bookcases, Custom Colors",
+          "sales": 532.3992,
+          "quantity": 3,
+          "discount": 0.32,
+          "profit": -46.9764
+        },
+        {
+          "productId": "FUR-CH-10004218",
+          "productName": "Global Fabric Manager's Chair, Dark Gray",
+          "sales": 212.058,
+          "quantity": 3,
+          "discount": 0.3,
+          "profit": -15.147
+        },
+        {
+          "productId": "TEC-PH-10000486",
+          "productName": "Plantronics HL10 Handset Lifter",
+          "sales": 371.168,
+          "quantity": 4,
+          "discount": 0.2,
+          "profit": 41.7564
+        }
+      ],
+      "totals": {
+        "sales": 1228.9532,
+        "profit": 15.048,
+        "quantity": 19
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477a6",
+      "orderId": "CA-2017-120999",
+      "customerId": "LC-16930",
+      "orderDate": "2017-09-10T00:00:00.000Z",
+      "shipDate": "2017-09-15T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Naperville",
+        "state": "Illinois",
+        "postalCode": "60540",
+        "region": "Central"
+      },
+      "items": [
+        {
+          "productId": "TEC-PH-10004093",
+          "productName": "Panasonic Kx-TS550",
+          "sales": 147.168,
+          "quantity": 4,
+          "discount": 0.2,
+          "profit": 16.5564
+        }
+      ],
+      "totals": {
+        "sales": 147.168,
+        "profit": 16.5564,
+        "quantity": 4
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477a7",
+      "orderId": "CA-2016-101343",
+      "customerId": "RA-19885",
+      "orderDate": "2016-07-17T00:00:00.000Z",
+      "shipDate": "2016-07-22T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Los Angeles",
+        "state": "California",
+        "postalCode": "90049",
+        "region": "West"
+      },
+      "items": [
+        {
+          "productId": "OFF-ST-10003479",
+          "productName": "Eldon Base for stackable storage shelf, platinum",
+          "sales": 77.88,
+          "quantity": 2,
+          "discount": 0,
+          "profit": 3.894
+        }
+      ],
+      "totals": {
+        "sales": 77.88,
+        "profit": 3.894,
+        "quantity": 2
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477a8",
+      "orderId": "CA-2017-139619",
+      "customerId": "ES-14080",
+      "orderDate": "2017-09-19T00:00:00.000Z",
+      "shipDate": "2017-09-23T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Melbourne",
+        "state": "Florida",
+        "postalCode": "32935",
+        "region": "South"
+      },
+      "items": [
+        {
+          "productId": "OFF-ST-10003282",
+          "productName": "Advantus 10-Drawer Portable Organizer, Chrome Metal Frame, Smoke Drawers",
+          "sales": 95.616,
+          "quantity": 2,
+          "discount": 0.2,
+          "profit": 9.5616
+        }
+      ],
+      "totals": {
+        "sales": 95.616,
+        "profit": 9.5616,
+        "quantity": 2
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477a9",
+      "orderId": "CA-2016-118255",
+      "customerId": "ON-18715",
+      "orderDate": "2016-03-11T00:00:00.000Z",
+      "shipDate": "2016-03-13T00:00:00.000Z",
+      "shipMode": "First Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Eagan",
+        "state": "Minnesota",
+        "postalCode": "55122",
+        "region": "Central"
+      },
+      "items": [
+        {
+          "productId": "TEC-AC-10000171",
+          "productName": "Verbatim 25 GB 6x Blu-ray Single Layer Recordable Disc, 25/Pack",
+          "sales": 45.98,
+          "quantity": 2,
+          "discount": 0,
+          "profit": 19.7714
+        },
+        {
+          "productId": "OFF-BI-10003291",
+          "productName": "Wilson Jones Leather-Like Binders with DublLock Round Rings",
+          "sales": 17.46,
+          "quantity": 2,
+          "discount": 0,
+          "profit": 8.2062
+        }
+      ],
+      "totals": {
+        "sales": 63.44,
+        "profit": 27.9776,
+        "quantity": 4
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477aa",
+      "orderId": "CA-2014-146703",
+      "customerId": "PO-18865",
+      "orderDate": "2014-10-20T00:00:00.000Z",
+      "shipDate": "2014-10-25T00:00:00.000Z",
+      "shipMode": "Second Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Westland",
+        "state": "Michigan",
+        "postalCode": "48185",
+        "region": "Central"
+      },
+      "items": [
+        {
+          "productId": "OFF-ST-10001713",
+          "productName": "Gould Plastics 9-Pocket Panel Bin, 18-3/8w x 5-1/4d x 20-1/2h, Black",
+          "sales": 211.96,
+          "quantity": 4,
+          "discount": 0,
+          "profit": 8.4784
+        }
+      ],
+      "totals": {
+        "sales": 211.96,
+        "profit": 8.4784,
+        "quantity": 4
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477ab",
+      "orderId": "CA-2016-169194",
+      "customerId": "LH-16900",
+      "orderDate": "2016-06-20T00:00:00.000Z",
+      "shipDate": "2016-06-25T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "Dover",
+        "state": "Delaware",
+        "postalCode": "19901",
+        "region": "East"
+      },
+      "items": [
+        {
+          "productId": "TEC-AC-10002167",
+          "productName": "Imation�8gb Micro Traveldrive Usb 2.0�Flash Drive",
+          "sales": 45,
+          "quantity": 3,
+          "discount": 0,
+          "profit": 4.95
+        },
+        {
+          "productId": "TEC-PH-10003988",
+          "productName": "LF Elite 3D Dazzle Designer Hard Case Cover, Lf Stylus Pen and Wiper For Apple Iphone 5c Mini Lite",
+          "sales": 21.8,
+          "quantity": 2,
+          "discount": 0,
+          "profit": 6.104
+        }
+      ],
+      "totals": {
+        "sales": 66.8,
+        "profit": 11.054,
+        "quantity": 5
+      },
+      "createdAt": "2026-10-16T10:26:10.294Z",
+      "updatedAt": "2026-10-16T10:26:10.294Z"
+    },
+    {
+      "_id": "6ad1fbc1e42132bc358477ac",
+      "orderId": "CA-2015-115742",
+      "customerId": "DP-13000",
+      "orderDate": "2015-04-18T00:00:00.000Z",
+      "shipDate": "2015-04-22T00:00:00.000Z",
+      "shipMode": "Standard Class",
+      "shippingStatus": "Shipped",
+      "shippingAddress": {
+        "city": "New Albany",
+        "state": "Indiana",
+        "postalCode": "47150",
+        "region": "Central"
+      },
+      "items": [
+        {
+          "productId": "OFF-BI-10004410",
+          "productName": "C-Line Peel & Stick Add-On Filing Pockets, 8-3/4 x 5-1/8, 10/Pack",
+          "sales": 38.22,
+          "quantity": 6,
+          "discount": 0,
+          "profit": 17.9634
+        },
+        {
+          "productId": "OFF-LA-10002762",
+          "productName": "Avery 485",
+          "sales": 75.18,
+          "quantity": 6,
+          "discount": 0,
+          "profit": 35.3346
+        },
+        {
+          "productId": "FUR-FU-10001706",
+          "productName": "Longer-Life Soft White Bulbs",
+          "sales": 6.16,
+          "quantity": 2,
+          "discount": 0,
+          "profit": 2.9568
+        },
+        {
+          "productId": "FUR-CH-10003061",
+          "productName": "Global Leather Task Chair, Black",
+          "sales": 89.99,
+          "quantity": 1,
+          "discount": 0,
+          "profit": 17.0981
+        }
+      ],
+      "totals": {
+        "sales": 209.55,
+        "profit": 73.3529,
+        "quantity": 15
+      },
+      "createdAt": "2026-10-16T10:26:10.295Z",
+      "updatedAt": "2026-10-16T10:26:10.295Z"
+    }
+  ]
+}

@@ -1,12 +1,24 @@
+const mongoose = require('mongoose');
 const Order = require('../models/Order');
 const Customer = require('../models/Customer');
 const Product = require('../models/Product');
+
+let snapshot = null;
+try {
+  snapshot = require('../data/demoSnapshot.json');
+} catch (e) {}
+
+const isDbOffline = () => mongoose.connection.readyState !== 1;
 
 /**
  * @desc    KPI Summary Cards (Total Revenue, Profit, Order Count, Customer Count)
  * @route   GET /api/analytics/kpis
  */
 const getKpis = async (req, res, next) => {
+  if (isDbOffline() && snapshot) {
+    return res.status(200).json({ success: true, data: snapshot.kpis, isDemoPreview: true });
+  }
+
   try {
     const [orderMetrics, customerCount, productCount] = await Promise.all([
       Order.aggregate([
@@ -43,6 +55,9 @@ const getKpis = async (req, res, next) => {
       }
     });
   } catch (error) {
+    if (snapshot) {
+      return res.status(200).json({ success: true, data: snapshot.kpis, isDemoPreview: true });
+    }
     next(error);
   }
 };
@@ -52,6 +67,10 @@ const getKpis = async (req, res, next) => {
  * @route GET /api/analytics/sales-by-year-month
  */
 const getSalesByYearMonth = async (req, res, next) => {
+  if (isDbOffline() && snapshot) {
+    return res.status(200).json({ success: true, count: snapshot.salesByYearMonth.length, data: snapshot.salesByYearMonth, isDemoPreview: true });
+  }
+
   try {
     const data = await Order.aggregate([
       {
@@ -93,6 +112,9 @@ const getSalesByYearMonth = async (req, res, next) => {
 
     res.status(200).json({ success: true, count: data.length, data });
   } catch (error) {
+    if (snapshot) {
+      return res.status(200).json({ success: true, count: snapshot.salesByYearMonth.length, data: snapshot.salesByYearMonth, isDemoPreview: true });
+    }
     next(error);
   }
 };
@@ -102,6 +124,10 @@ const getSalesByYearMonth = async (req, res, next) => {
  * @route GET /api/analytics/category-performance
  */
 const getCategoryPerformance = async (req, res, next) => {
+  if (isDbOffline() && snapshot) {
+    return res.status(200).json({ success: true, count: snapshot.categoryPerformance.length, data: snapshot.categoryPerformance, isDemoPreview: true });
+  }
+
   try {
     const data = await Order.aggregate([
       { $unwind: '$items' },
@@ -147,6 +173,9 @@ const getCategoryPerformance = async (req, res, next) => {
 
     res.status(200).json({ success: true, count: data.length, data });
   } catch (error) {
+    if (snapshot) {
+      return res.status(200).json({ success: true, count: snapshot.categoryPerformance.length, data: snapshot.categoryPerformance, isDemoPreview: true });
+    }
     next(error);
   }
 };
@@ -156,6 +185,10 @@ const getCategoryPerformance = async (req, res, next) => {
  * @route GET /api/analytics/top-customers
  */
 const getTopCustomers = async (req, res, next) => {
+  if (isDbOffline() && snapshot) {
+    return res.status(200).json({ success: true, count: snapshot.topCustomers.length, data: snapshot.topCustomers, isDemoPreview: true });
+  }
+
   try {
     const limit = parseInt(req.query.limit, 10) || 10;
 
@@ -196,6 +229,9 @@ const getTopCustomers = async (req, res, next) => {
 
     res.status(200).json({ success: true, count: data.length, data });
   } catch (error) {
+    if (snapshot) {
+      return res.status(200).json({ success: true, count: snapshot.topCustomers.length, data: snapshot.topCustomers, isDemoPreview: true });
+    }
     next(error);
   }
 };
@@ -205,6 +241,10 @@ const getTopCustomers = async (req, res, next) => {
  * @route GET /api/analytics/products-by-profit
  */
 const getProductsByProfit = async (req, res, next) => {
+  if (isDbOffline() && snapshot) {
+    return res.status(200).json({ success: true, data: snapshot.productsByProfit, isDemoPreview: true });
+  }
+
   try {
     const limit = parseInt(req.query.limit, 10) || 10;
 
@@ -269,6 +309,9 @@ const getProductsByProfit = async (req, res, next) => {
       }
     });
   } catch (error) {
+    if (snapshot) {
+      return res.status(200).json({ success: true, data: snapshot.productsByProfit, isDemoPreview: true });
+    }
     next(error);
   }
 };
@@ -278,6 +321,10 @@ const getProductsByProfit = async (req, res, next) => {
  * @route GET /api/analytics/profit-by-geography
  */
 const getProfitByGeography = async (req, res, next) => {
+  if (isDbOffline() && snapshot) {
+    return res.status(200).json({ success: true, count: snapshot.profitByGeography.length, data: snapshot.profitByGeography, isDemoPreview: true });
+  }
+
   try {
     const data = await Order.aggregate([
       {
@@ -322,6 +369,9 @@ const getProfitByGeography = async (req, res, next) => {
 
     res.status(200).json({ success: true, count: data.length, data });
   } catch (error) {
+    if (snapshot) {
+      return res.status(200).json({ success: true, count: snapshot.profitByGeography.length, data: snapshot.profitByGeography, isDemoPreview: true });
+    }
     next(error);
   }
 };
@@ -331,6 +381,10 @@ const getProfitByGeography = async (req, res, next) => {
  * @route GET /api/analytics/discount-impact
  */
 const getDiscountImpact = async (req, res, next) => {
+  if (isDbOffline() && snapshot) {
+    return res.status(200).json({ success: true, count: snapshot.discountImpact.length, data: snapshot.discountImpact, isDemoPreview: true });
+  }
+
   try {
     const data = await Order.aggregate([
       { $unwind: '$items' },
@@ -384,6 +438,9 @@ const getDiscountImpact = async (req, res, next) => {
 
     res.status(200).json({ success: true, count: data.length, data });
   } catch (error) {
+    if (snapshot) {
+      return res.status(200).json({ success: true, count: snapshot.discountImpact.length, data: snapshot.discountImpact, isDemoPreview: true });
+    }
     next(error);
   }
 };
@@ -393,6 +450,10 @@ const getDiscountImpact = async (req, res, next) => {
  * @route GET /api/analytics/shipping-time
  */
 const getShippingTimeByMode = async (req, res, next) => {
+  if (isDbOffline() && snapshot) {
+    return res.status(200).json({ success: true, count: snapshot.shippingTime.length, data: snapshot.shippingTime, isDemoPreview: true });
+  }
+
   try {
     const data = await Order.aggregate([
       {
@@ -430,6 +491,9 @@ const getShippingTimeByMode = async (req, res, next) => {
 
     res.status(200).json({ success: true, count: data.length, data });
   } catch (error) {
+    if (snapshot) {
+      return res.status(200).json({ success: true, count: snapshot.shippingTime.length, data: snapshot.shippingTime, isDemoPreview: true });
+    }
     next(error);
   }
 };
@@ -439,6 +503,10 @@ const getShippingTimeByMode = async (req, res, next) => {
  * @route GET /api/analytics/sales-by-segment
  */
 const getSalesBySegment = async (req, res, next) => {
+  if (isDbOffline() && snapshot) {
+    return res.status(200).json({ success: true, count: snapshot.salesBySegment.length, data: snapshot.salesBySegment, isDemoPreview: true });
+  }
+
   try {
     const data = await Order.aggregate([
       {
@@ -477,6 +545,9 @@ const getSalesBySegment = async (req, res, next) => {
 
     res.status(200).json({ success: true, count: data.length, data });
   } catch (error) {
+    if (snapshot) {
+      return res.status(200).json({ success: true, count: snapshot.salesBySegment.length, data: snapshot.salesBySegment, isDemoPreview: true });
+    }
     next(error);
   }
 };

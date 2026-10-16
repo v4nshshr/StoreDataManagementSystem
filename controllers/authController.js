@@ -58,6 +58,14 @@ const register = async (req, res, next) => {
   }
 };
 
+const mongoose = require('mongoose');
+
+const SEED_USERS = {
+  admin: { id: '6ad1fbaa32e07ab656afddfd', username: 'admin', role: 'admin', password: 'AdminPassword123!' },
+  manager: { id: '6ad1fbaa32e07ab656afddfe', username: 'manager', role: 'manager', password: 'ManagerPassword123!' },
+  cashier: { id: '6ad1fbaa32e07ab656afddff', username: 'cashier', role: 'cashier', password: 'CashierPassword123!' }
+};
+
 /**
  * @desc    Authenticate user & get JWT token
  * @route   POST /api/auth/login
@@ -74,7 +82,31 @@ const login = async (req, res, next) => {
       });
     }
 
-    const user = await User.findOne({ username: username.toLowerCase().trim() });
+    const cleanUser = username.toLowerCase().trim();
+
+    // If database is not connected, support seed credentials for live cloud demo
+    if (mongoose.connection.readyState !== 1) {
+      const seed = SEED_USERS[cleanUser];
+      if (seed && seed.password === password) {
+        const token = jwt.sign(
+          { id: seed.id, username: seed.username, role: seed.role },
+          JWT_SECRET,
+          { expiresIn: '24h' }
+        );
+        return res.status(200).json({
+          success: true,
+          message: 'Login successful (Preview Mode)',
+          token,
+          user: { id: seed.id, username: seed.username, role: seed.role }
+        });
+      }
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid credentials. User not found.'
+      });
+    }
+
+    const user = await User.findOne({ username: cleanUser });
     if (!user) {
       return res.status(401).json({
         success: false,

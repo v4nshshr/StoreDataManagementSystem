@@ -1,6 +1,12 @@
 const Order = require('../models/Order');
 const Customer = require('../models/Customer');
 const Product = require('../models/Product');
+const mongoose = require('mongoose');
+
+let snapshot = null;
+try {
+  snapshot = require('../data/demoSnapshot.json');
+} catch (e) {}
 
 /**
  * @desc    Get all orders with pagination, date filtering, and status filtering
@@ -24,6 +30,19 @@ const getOrders = async (req, res, next) => {
 
     const pageNum = Math.max(1, parseInt(page, 10) || 1);
     const limitNum = Math.min(100, Math.max(1, parseInt(limit, 10) || 20));
+
+    if (mongoose.connection.readyState !== 1 && snapshot) {
+      return res.status(200).json({
+        success: true,
+        count: snapshot.orders.length,
+        total: snapshot.kpis?.totalOrders || snapshot.orders.length,
+        totalPages: 1,
+        currentPage: 1,
+        limit: limitNum,
+        data: snapshot.orders
+      });
+    }
+
     const skip = (pageNum - 1) * limitNum;
 
     const filter = {};

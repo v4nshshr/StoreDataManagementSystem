@@ -33,21 +33,18 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Middleware to ensure DB connection across serverless requests (Vercel)
+// Middleware to attempt DB connection across requests
 app.use(async (req, res, next) => {
-  // Static assets or health check bypass DB connect
   if (!req.path.startsWith('/api') || req.path === '/api/health') {
     return next();
   }
   try {
     await connectDB();
-    next();
   } catch (err) {
-    return res.status(500).json({
-      success: false,
-      message: 'Database connection failed. Please ensure MONGO_URI is set in environment variables.'
-    });
+    // Database offline or unconfigured on cloud - proceed with snapshot fallback
+    req.dbOffline = true;
   }
+  next();
 });
 
 // Mount Modular API Routes
