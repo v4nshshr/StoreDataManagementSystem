@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: retail-store-system
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        value: superstore_retail_jwt_secret_key_2026
+      - key: JWT_EXPIRES_IN
+        value: 24h
+      - key: MONGO_URI
+        sync: false
