@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
 const User = require('../models/User');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'superstore_retail_jwt_secret_key_2026';
