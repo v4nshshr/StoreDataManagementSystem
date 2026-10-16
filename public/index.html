@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>US Retail Store Management System | MongoDB & Express</title>
+  <!-- Modern Fonts and Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Chart.js 4.4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- Custom Application Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon"><i class="fa-solid fa-store"></i></div>
+      <div class="brand-text">
+        <h2>US Retail Store</h2>
+        <span>MongoDB Management System</span>
+      </div>
+    </div>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a class="nav-link active" data-tab="analytics">
+          <i class="fa-solid fa-chart-line"></i> Analytics Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-tab="orders">
+          <i class="fa-solid fa-box"></i> Order Fulfillment
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-tab="customers">
+          <i class="fa-solid fa-users"></i> Customer Directory
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-tab="products">
+          <i class="fa-solid fa-tags"></i> Product Catalog
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-tab="inventory">
+          <i class="fa-solid fa-warehouse"></i> Inventory Sales View
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div class="user-badge">
+        <div class="user-info">
+          <span class="user-name" id="display-username">admin</span>
+          <span class="user-role role-admin" id="display-role">ADMIN</span>
+        </div>
+        <button class="btn-logout" id="btn-logout" title="Log out"><i class="fa-solid fa-right-from-bracket"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="page-title">
+        <h1 id="header-title">Store Analytics & Performance</h1>
+        <p id="header-desc">Real-time sales, profitability, and operational insights</p>
+      </div>
+      <div class="topbar-actions">
+        <!-- Live Teacher Demo Role Switcher -->
+        <span style="font-size: 0.8rem; font-weight:600; color:var(--text-muted);">Switch Demo Role:</span>
+        <button class="btn btn-secondary btn-sm role-switch-btn" data-role="admin"><i class="fa-solid fa-shield"></i> Admin</button>
+        <button class="btn btn-secondary btn-sm role-switch-btn" data-role="manager"><i class="fa-solid fa-user-tie"></i> Manager</button>
+        <button class="btn btn-secondary btn-sm role-switch-btn" data-role="cashier"><i class="fa-solid fa-cash-register"></i> Cashier</button>
+      </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="content-area">
+
+      <!-- ========================================== -->
+      <!-- TAB 1: ANALYTICS DASHBOARD                 -->
+      <!-- ========================================== -->
+      <section class="tab-content active" id="tab-analytics">
+        <!-- 4 Summary KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-title">Total Revenue</div>
+              <div class="kpi-value" id="kpi-sales">$0.00</div>
+              <div class="kpi-sub">Across 5,009 orders</div>
+            </div>
+            <div class="kpi-icon icon-sales"><i class="fa-solid fa-dollar-sign"></i></div>
+          </div>
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-title">Net Profit</div>
+              <div class="kpi-value" id="kpi-profit" style="color:var(--success);">$0.00</div>
+              <div class="kpi-sub">Overall profit margin ~12.5%</div>
+            </div>
+            <div class="kpi-icon icon-profit"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          </div>
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-title">Total Orders</div>
+              <div class="kpi-value" id="kpi-orders">0</div>
+              <div class="kpi-sub">Grouped atomic orders</div>
+            </div>
+            <div class="kpi-icon icon-orders"><i class="fa-solid fa-receipt"></i></div>
+          </div>
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-title">Active Customers</div>
+              <div class="kpi-value" id="kpi-customers">0</div>
+              <div class="kpi-sub">Across 4 US regions</div>
+            </div>
+            <div class="kpi-icon icon-customers"><i class="fa-solid fa-user-group"></i></div>
+          </div>
+        </div>
+
+        <!-- 6 Interactive Aggregation Visualizations Grid -->
+        <div class="charts-grid">
+          <!-- Chart 1: Sales & Profit by Year-Month -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Monthly Sales & Net Profit Timeline</h3>
+              <span>Aggregation: $year & $month grouping</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-sales-profit"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 2: Category & Sub-Category Performance -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Category Revenue & Profit</h3>
+              <span>Aggregation: Catalog $lookup & $group</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-category"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 3: Customer Segment Split -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Sales by Customer Segment</h3>
+              <span>Consumer vs Corporate vs Home Office</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-segment"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 4: Geographical Regional Profit -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Profit by US Region</h3>
+              <span>Aggregation: 2-tier State & Region grouping</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-geography"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 5: Discount Level Impact on Profitability -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Discount Level Impact & Loss Rate</h3>
+              <span>Highlights loss-making orders at &gt;20% discount</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-discount"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 6: Shipping Transit Times -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Average Shipping Days by Mode</h3>
+              <span>Aggregation: $subtract BSON dates</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-shipping"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary Tables (Top Customers & Top Products) -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div class="table-card">
+            <div class="table-header">
+              <div class="table-header-left">
+                <h3>Top VIP Customers by Sales</h3>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Segment</th>
+                    <th>State</th>
+                    <th>Total Spend</th>
+                    <th>Profit</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-top-customers"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="table-card">
+            <div class="table-header">
+              <div class="table-header-left">
+                <h3>Top Profitable Catalog Products</h3>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Units Sold</th>
+                    <th>Sales</th>
+                    <th>Net Profit</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-top-products"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 2: ORDER FULFILLMENT                   -->
+      <!-- ========================================== -->
+      <section class="tab-content" id="tab-orders">
+        <div class="table-card">
+          <div class="table-header">
+            <div class="table-header-left">
+              <h3>Orders Directory</h3>
+            </div>
+            <div class="filter-bar">
+              <input type="text" id="order-search" class="search-input" placeholder="Search Order ID / Customer ID...">
+              <select id="order-filter-status" class="select-filter">
+                <option value="">All Shipping Statuses</option>
+                <option value="Shipped">Shipped</option>
+                <option value="Processing">Processing</option>
+                <option value="Delivered">Delivered</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+              <select id="order-filter-mode" class="select-filter">
+                <option value="">All Ship Modes</option>
+                <option value="Standard Class">Standard Class</option>
+                <option value="Second Class">Second Class</option>
+                <option value="First Class">First Class</option>
+                <option value="Same Day">Same Day</option>
+              </select>
+              <button class="btn btn-primary rbac-manager-up" onclick="App.openCreateOrderModal()">
+                <i class="fa-solid fa-plus"></i> New Order
+              </button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Order Date</th>
+                  <th>Ship Mode</th>
+                  <th>Items</th>
+                  <th>Total Sales</th>
+                  <th>Profit</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-orders"></tbody>
+            </table>
+          </div>
+          <div class="pagination-bar">
+            <span id="order-page-info">Showing page 1</span>
+            <div class="pagination-controls">
+              <button class="btn btn-secondary btn-sm" id="order-btn-prev" onclick="App.state.orders.page--; App.loadOrders();">Previous</button>
+              <button class="btn btn-secondary btn-sm" id="order-btn-next" onclick="App.state.orders.page++; App.loadOrders();">Next</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 3: CUSTOMER MANAGEMENT                 -->
+      <!-- ========================================== -->
+      <section class="tab-content" id="tab-customers">
+        <div class="table-card">
+          <div class="table-header">
+            <div class="table-header-left">
+              <h3>Customer Profiles</h3>
+            </div>
+            <div class="filter-bar">
+              <input type="text" id="cust-search" class="search-input" placeholder="Search by Customer Name or ID...">
+              <select id="cust-filter-segment" class="select-filter">
+                <option value="">All Segments</option>
+                <option value="Consumer">Consumer</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Home Office">Home Office</option>
+              </select>
+              <button class="btn btn-primary rbac-manager-up" onclick="App.openAddCustomerModal()">
+                <i class="fa-solid fa-user-plus"></i> Add Customer
+              </button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Customer ID</th>
+                  <th>Customer Name</th>
+                  <th>Segment</th>
+                  <th>City, State (Zip)</th>
+                  <th>Region</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-customers"></tbody>
+            </table>
+          </div>
+          <div class="pagination-bar">
+            <span id="cust-page-info">Showing page 1</span>
+            <div class="pagination-controls">
+              <button class="btn btn-secondary btn-sm" id="cust-btn-prev" onclick="App.state.customers.page--; App.loadCustomers();">Previous</button>
+              <button class="btn btn-secondary btn-sm" id="cust-btn-next" onclick="App.state.customers.page++; App.loadCustomers();">Next</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 4: PRODUCT CATALOG                     -->
+      <!-- ========================================== -->
+      <section class="tab-content" id="tab-products">
+        <div class="table-card">
+          <div class="table-header">
+            <div class="table-header-left">
+              <h3>Product Catalog</h3>
+            </div>
+            <div class="filter-bar">
+              <input type="text" id="prod-search" class="search-input" placeholder="Search Product Name or ID...">
+              <select id="prod-filter-category" class="select-filter">
+                <option value="">All Categories</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Office Supplies">Office Supplies</option>
+                <option value="Technology">Technology</option>
+              </select>
+              <button class="btn btn-primary rbac-manager-up" onclick="App.openAddProductModal()">
+                <i class="fa-solid fa-plus"></i> Add Product
+              </button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Product ID</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Sub-Category</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-products"></tbody>
+            </table>
+          </div>
+          <div class="pagination-bar">
+            <span id="prod-page-info">Showing page 1</span>
+            <div class="pagination-controls">
+              <button class="btn btn-secondary btn-sm" id="prod-btn-prev" onclick="App.state.products.page--; App.loadProducts();">Previous</button>
+              <button class="btn btn-secondary btn-sm" id="prod-btn-next" onclick="App.state.products.page++; App.loadProducts();">Next</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 5: INVENTORY VIEW                      -->
+      <!-- ========================================== -->
+      <section class="tab-content" id="tab-inventory">
+        <div class="table-card">
+          <div class="table-header">
+            <div class="table-header-left">
+              <h3>Inventory Sales Movement & Volume</h3>
+            </div>
+            <div class="filter-bar">
+              <input type="text" id="inv-search" class="search-input" placeholder="Search SKU or Product...">
+              <select id="inv-filter-category" class="select-filter">
+                <option value="">All Categories</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Office Supplies">Office Supplies</option>
+                <option value="Technology">Technology</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>SKU / Product ID</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Quantity Sold</th>
+                  <th>Total Sales Volume</th>
+                  <th>Total Profit</th>
+                  <th>Order Frequency</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-inventory"></tbody>
+            </table>
+          </div>
+          <div class="pagination-bar">
+            <span id="inv-page-info">Showing page 1</span>
+            <div class="pagination-controls">
+              <button class="btn btn-secondary btn-sm" id="inv-btn-prev" onclick="App.state.inventory.page--; App.loadInventory();">Previous</button>
+              <button class="btn btn-secondary btn-sm" id="inv-btn-next" onclick="App.state.inventory.page++; App.loadInventory();">Next</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODALS                                     -->
+  <!-- ========================================== -->
+
+  <!-- Modal: Customer Add/Edit -->
+  <div class="modal-overlay" id="modal-customer">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-customer-title">Customer Form</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="form-customer" onsubmit="App.saveCustomer(event)">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Customer ID</label>
+              <input type="text" id="cust-form-id" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Customer Name</label>
+              <input type="text" id="cust-form-name" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Customer Segment</label>
+            <select id="cust-form-segment" class="form-control" required>
+              <option value="Consumer">Consumer</option>
+              <option value="Corporate">Corporate</option>
+              <option value="Home Office">Home Office</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" id="cust-form-city" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>State</label>
+              <input type="text" id="cust-form-state" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Postal Code (5 digits)</label>
+              <input type="text" id="cust-form-zip" class="form-control" pattern="\d{5}" required>
+            </div>
+            <div class="form-group">
+              <label>Region</label>
+              <select id="cust-form-region" class="form-control" required>
+                <option value="East">East</option>
+                <option value="West">West</option>
+                <option value="Central">Central</option>
+                <option value="South">South</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Customer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: View Customer Orders -->
+  <div class="modal-overlay" id="modal-cust-orders">
+    <div class="modal" style="max-width: 750px;">
+      <div class="modal-header">
+        <h3 id="modal-cust-orders-title">Customer Orders</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Order Date</th>
+                <th>Items</th>
+                <th>Total Sales</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-modal-cust-orders"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-modal-cancel">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Product Add/Edit -->
+  <div class="modal-overlay" id="modal-product">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-product-title">Product Form</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="form-product" onsubmit="App.saveProduct(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Product ID (SKU)</label>
+            <input type="text" id="prod-form-id" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" id="prod-form-name" class="form-control" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Category</label>
+              <select id="prod-form-category" class="form-control" required>
+                <option value="Furniture">Furniture</option>
+                <option value="Office Supplies">Office Supplies</option>
+                <option value="Technology">Technology</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Sub-Category</label>
+              <input type="text" id="prod-form-subcategory" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Order Details -->
+  <div class="modal-overlay" id="modal-order-details">
+    <div class="modal" style="max-width: 750px;">
+      <div class="modal-header">
+        <h3 id="modal-order-title">Order Details</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="modal-order-meta"></div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Item / Product</th>
+                <th>Qty</th>
+                <th>Sales</th>
+                <th>Discount</th>
+                <th>Profit</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-modal-order-items"></tbody>
+          </table>
+        </div>
+        <div style="margin-top: 16px; text-align: right; font-size: 0.95rem;">
+          <p><strong>Total Sales:</strong> <span id="modal-order-total-sales">$0.00</span></p>
+          <p><strong>Total Profit:</strong> <span id="modal-order-total-profit" style="color:var(--success);">$0.00</span></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-modal-cancel">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Update Order Shipping Status -->
+  <div class="modal-overlay" id="modal-update-status">
+    <div class="modal" style="max-width: 400px;">
+      <div class="modal-header">
+        <h3>Update Shipping Status</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form onsubmit="App.saveOrderStatus(event)">
+        <div class="modal-body">
+          <input type="hidden" id="status-form-order-id">
+          <div class="form-group">
+            <label>Select New Status</label>
+            <select id="status-form-select" class="form-control" required>
+              <option value="Processing">Processing</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Update Status</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Create New Order -->
+  <div class="modal-overlay" id="modal-create-order">
+    <div class="modal" style="max-width: 750px;">
+      <div class="modal-header">
+        <h3>Create New Order</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form onsubmit="App.saveNewOrder(event)">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Customer ID (Ref)</label>
+              <input type="text" id="new-order-cust-id" class="form-control" value="CG-12520" required>
+            </div>
+            <div class="form-group">
+              <label>Ship Mode</label>
+              <select id="new-order-mode" class="form-control" required>
+                <option value="Standard Class">Standard Class</option>
+                <option value="Second Class">Second Class</option>
+                <option value="First Class">First Class</option>
+                <option value="Same Day">Same Day</option>
+              </select>
+            </div>
+          </div>
+
+          <label style="font-weight: 600; font-size: 0.85rem; margin-top: 10px; display: block;">Order Line Items (Embedded)</label>
+          <table class="data-table" style="margin-top: 8px;">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Qty</th>
+                <th>Sales ($)</th>
+                <th>Discount</th>
+                <th>Profit ($)</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-draft-items"></tbody>
+          </table>
+          <button type="button" class="btn btn-secondary btn-sm" style="margin-top: 8px;" onclick="App.addDraftItem()">
+            <i class="fa-solid fa-plus"></i> Add Line Item
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Order</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "us-retail-store-management-system",
+  "version": "1.0.0",
+  "description": "US Retail Store Management System using MongoDB, Express, and Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "import-data": "node scripts/importData.js",
+    "init-schema": "node scripts/initSchemaValidation.js"
+  },
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "nosql",
+    "express",
+    "retail-store",
+    "aggregation-pipeline"
+  ],
+  "author": "Antigravity Engineer",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
