@@ -77,11 +77,15 @@ const DashboardCharts = {
     // Aggregate by category
     const categoryTotals = {};
     data.forEach((item) => {
-      if (!categoryTotals[item.category]) {
-        categoryTotals[item.category] = { sales: 0, profit: 0 };
+      const cat = item.category;
+      if (!cat) return;
+      if (!categoryTotals[cat]) {
+        categoryTotals[cat] = { sales: 0, profit: 0 };
       }
-      categoryTotals[item.category].sales += item.totalSales;
-      categoryTotals[item.category].profit += item.totalProfit;
+      const s = item.totalSales ?? item.categorySales ?? 0;
+      const p = item.totalProfit ?? item.categoryProfit ?? 0;
+      categoryTotals[cat].sales += s;
+      categoryTotals[cat].profit += p;
     });
 
     const labels = Object.keys(categoryTotals);
@@ -206,9 +210,9 @@ const DashboardCharts = {
     const ctx = document.getElementById(canvasId)?.getContext('2d');
     if (!ctx) return;
 
-    const labels = data.map((d) => d.discountBracket);
-    const profits = data.map((d) => d.totalProfit);
-    const lossRates = data.map((d) => d.lossRatePercent);
+    const labels = data.map((d) => d.discountBracket || d.discountTier || 'Discount');
+    const profits = data.map((d) => d.totalProfit || 0);
+    const lossRates = data.map((d) => d.lossRatePercent ?? d.lossPercentage ?? 0);
 
     this.instances[canvasId] = new Chart(ctx, {
       type: 'bar',
@@ -267,7 +271,7 @@ const DashboardCharts = {
     if (!ctx) return;
 
     const labels = data.map((d) => d.shipMode);
-    const days = data.map((d) => d.avgShippingDays);
+    const days = data.map((d) => d.avgShippingDays ?? d.avgDays ?? 0);
 
     this.instances[canvasId] = new Chart(ctx, {
       type: 'bar',

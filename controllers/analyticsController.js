@@ -242,7 +242,11 @@ const getTopCustomers = async (req, res, next) => {
  */
 const getProductsByProfit = async (req, res, next) => {
   if (isDbOffline() && snapshot) {
-    return res.status(200).json({ success: true, data: snapshot.productsByProfit, isDemoPreview: true });
+    const payload = {
+      topProfitable: snapshot.productsByProfit.topProfitable || snapshot.productsByProfit.top || [],
+      bottomLossMaking: snapshot.productsByProfit.bottomLossMaking || snapshot.productsByProfit.bottom || []
+    };
+    return res.status(200).json({ success: true, data: payload, isDemoPreview: true });
   }
 
   try {
@@ -310,7 +314,11 @@ const getProductsByProfit = async (req, res, next) => {
     });
   } catch (error) {
     if (snapshot) {
-      return res.status(200).json({ success: true, data: snapshot.productsByProfit, isDemoPreview: true });
+      const payload = {
+        topProfitable: snapshot.productsByProfit.topProfitable || snapshot.productsByProfit.top || [],
+        bottomLossMaking: snapshot.productsByProfit.bottomLossMaking || snapshot.productsByProfit.bottom || []
+      };
+      return res.status(200).json({ success: true, data: payload, isDemoPreview: true });
     }
     next(error);
   }

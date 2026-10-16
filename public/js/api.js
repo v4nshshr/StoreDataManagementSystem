@@ -53,7 +53,6 @@ const API = {
       if (!response.ok) {
         if (response.status === 401 && !endpoint.includes('/auth/login')) {
           this.logout();
-          window.location.reload();
         }
         throw new Error(data.message || `Request failed with status ${response.status}`);
       }

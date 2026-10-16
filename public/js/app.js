@@ -245,18 +245,22 @@ const App = {
   // TAB 1: ANALYTICS DASHBOARD
   // ==========================================
   async loadAnalytics() {
+    // 1. KPI Cards
     try {
-      // 1. KPI Cards
       const kpis = await API.getKpis();
-      if (kpis.data) {
+      if (kpis && kpis.data) {
         document.getElementById('kpi-sales').textContent = `$${kpis.data.totalSales.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
         document.getElementById('kpi-profit').textContent = `$${kpis.data.totalProfit.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
         document.getElementById('kpi-orders').textContent = kpis.data.totalOrders.toLocaleString();
         document.getElementById('kpi-customers').textContent = kpis.data.totalCustomers.toLocaleString();
       }
+    } catch (err) {
+      console.error('KPI load error:', err);
+    }
 
-      // 2. Charts
-      const [salesTime, catPerf, segmentSales, geoProfit, discountImpact, shippingTime, topCust, prodProfit] = await Promise.all([
+    // 2. Charts & Analytics Visualizations
+    try {
+      const [salesTime, catPerf, segmentSales, geoProfit, discountImpact, shippingTime, topCust, prodProfit] = await Promise.allSettled([
         API.getSalesByYearMonth(),
         API.getCategoryPerformance(),
         API.getSalesBySegment(),
@@ -267,16 +271,16 @@ const App = {
         API.getProductsByProfit(5)
       ]);
 
-      DashboardCharts.renderSalesProfitTimeline('chart-sales-profit', salesTime.data || []);
-      DashboardCharts.renderCategoryPerformance('chart-category', catPerf.data || []);
-      DashboardCharts.renderSegmentSales('chart-segment', segmentSales.data || []);
-      DashboardCharts.renderRegionalProfit('chart-geography', geoProfit.data || []);
-      DashboardCharts.renderDiscountImpact('chart-discount', discountImpact.data || []);
-      DashboardCharts.renderShippingTimes('chart-shipping', shippingTime.data || []);
+      if (salesTime.status === 'fulfilled') DashboardCharts.renderSalesProfitTimeline('chart-sales-profit', salesTime.value?.data || []);
+      if (catPerf.status === 'fulfilled') DashboardCharts.renderCategoryPerformance('chart-category', catPerf.value?.data || []);
+      if (segmentSales.status === 'fulfilled') DashboardCharts.renderSegmentSales('chart-segment', segmentSales.value?.data || []);
+      if (geoProfit.status === 'fulfilled') DashboardCharts.renderRegionalProfit('chart-geography', geoProfit.value?.data || []);
+      if (discountImpact.status === 'fulfilled') DashboardCharts.renderDiscountImpact('chart-discount', discountImpact.value?.data || []);
+      if (shippingTime.status === 'fulfilled') DashboardCharts.renderShippingTimes('chart-shipping', shippingTime.value?.data || []);
 
       // 3. Mini Tables (Top Customers & Top Products)
-      this.renderTopCustomersTable(topCust.data || []);
-      this.renderTopProductsTable(prodProfit.data?.topProfitable || []);
+      if (topCust.status === 'fulfilled') this.renderTopCustomersTable(topCust.value?.data || []);
+      if (prodProfit.status === 'fulfilled') this.renderTopProductsTable(prodProfit.value?.data?.topProfitable || []);
     } catch (err) {
       console.error('Analytics load error:', err);
     }
