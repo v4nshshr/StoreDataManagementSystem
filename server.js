@@ -73,15 +73,18 @@ app.use(globalErrorHandler);
 const PORT = process.env.PORT || 5000;
 
 if (require.main === module) {
-  connectDB().then(() => {
-    app.listen(PORT, () => {
-      console.log('='.repeat(65));
-      console.log(`US Retail Store Management Server running on port ${PORT}`);
-      console.log(`Web Dashboard: http://localhost:${PORT}`);
-      console.log(`API Base URL:  http://localhost:${PORT}/api`);
-      console.log('='.repeat(65));
-    });
-  }).catch((err) => console.error('Initial DB connect error:', err));
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log('='.repeat(65));
+    console.log(`US Retail Store Management Server running on port ${PORT}`);
+    console.log(`Web Dashboard: http://localhost:${PORT}`);
+    console.log(`API Base URL:  http://localhost:${PORT}/api`);
+    console.log('='.repeat(65));
+  });
+
+  connectDB().catch((err) => {
+    console.error('Initial MongoDB connect error:', err.message);
+    console.warn('Server is active. Ensure MONGO_URI is set in Render Environment Variables.');
+  });
 }
 
 module.exports = app;
