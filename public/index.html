@@ -3,368 +3,372 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>US Retail Store Management System | MongoDB & Express</title>
-  <!-- Modern Fonts and Icons -->
+  <title>US Retail Store | NoSQL (MongoDB) Management System</title>
+  <!-- Google Font & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Chart.js 4.4 CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <!-- Custom Application Styles -->
+  <!-- App Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Sidebar Navigation -->
-  <aside class="sidebar">
+  <!-- Top Navigation Header -->
+  <header class="app-header">
     <div class="brand">
-      <div class="brand-icon"><i class="fa-solid fa-store"></i></div>
-      <div class="brand-text">
-        <h2>US Retail Store</h2>
-        <span>MongoDB Management System</span>
+      <div class="brand-icon"><i class="fa-solid fa-leaf"></i></div>
+      <div>
+        <h1>US Retail Store System</h1>
+        <span class="subtitle">MongoDB / NoSQL Database Demonstration</span>
       </div>
     </div>
-
-    <ul class="nav-menu">
-      <li class="nav-item">
-        <a class="nav-link active" data-tab="analytics">
-          <i class="fa-solid fa-chart-line"></i> Analytics Dashboard
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-tab="orders">
-          <i class="fa-solid fa-box"></i> Order Fulfillment
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-tab="customers">
-          <i class="fa-solid fa-users"></i> Customer Directory
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-tab="products">
-          <i class="fa-solid fa-tags"></i> Product Catalog
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-tab="inventory">
-          <i class="fa-solid fa-warehouse"></i> Inventory Sales View
-        </a>
-      </li>
-    </ul>
-
-    <div class="sidebar-footer">
-      <div class="user-badge">
-        <div class="user-info">
-          <span class="user-name" id="display-username">admin</span>
-          <span class="user-role role-admin" id="display-role">ADMIN</span>
-        </div>
-        <button class="btn-logout" id="btn-logout" title="Log out"><i class="fa-solid fa-right-from-bracket"></i></button>
-      </div>
+    <div class="header-badges">
+      <span class="badge badge-db"><i class="fa-solid fa-database"></i> Database: <strong>retail_store_db</strong></span>
+      <span class="badge badge-success" id="connection-status"><i class="fa-solid fa-circle-check"></i> System Online</span>
     </div>
-  </aside>
+  </header>
 
-  <!-- Main Content Wrapper -->
-  <div class="main-wrapper">
-    <!-- Topbar -->
-    <header class="topbar">
-      <div class="page-title">
-        <h1 id="header-title">Store Analytics & Performance</h1>
-        <p id="header-desc">Real-time sales, profitability, and operational insights</p>
+  <!-- Main Navigation Tabs -->
+  <nav class="nav-tabs">
+    <button class="tab-btn active" data-tab="tab-analytics">
+      <i class="fa-solid fa-chart-pie"></i> 1. Aggregation Pipelines
+    </button>
+    <button class="tab-btn" data-tab="tab-crud">
+      <i class="fa-solid fa-bolt"></i> 2. CRUD Operations
+    </button>
+    <button class="tab-btn" data-tab="tab-schema">
+      <i class="fa-solid fa-diagram-project"></i> 3. Schema & Collections
+    </button>
+    <button class="tab-btn" data-tab="tab-viva">
+      <i class="fa-solid fa-graduation-cap"></i> 4. Viva Cheat Sheet
+    </button>
+  </nav>
+
+  <main class="main-container">
+
+    <!-- ============================================================= -->
+    <!-- TAB 1: AGGREGATION PIPELINES (THE CORE OF NOSQL EVALUATION)   -->
+    <!-- ============================================================= -->
+    <section id="tab-analytics" class="tab-panel active">
+      
+      <!-- Summary Metric Cards -->
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-info">
+            <span class="metric-label">TOTAL REVENUE (SALES)</span>
+            <span class="metric-val" id="metric-sales">$2,297,200.86</span>
+            <span class="metric-sub">db.orders.aggregate() $sum</span>
+          </div>
+          <div class="metric-icon bg-blue"><i class="fa-solid fa-dollar-sign"></i></div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-info">
+            <span class="metric-label">TOTAL PROFIT</span>
+            <span class="metric-val text-green" id="metric-profit">$286,397.02</span>
+            <span class="metric-sub">Calculated via $group pipeline</span>
+          </div>
+          <div class="metric-icon bg-green"><i class="fa-solid fa-arrow-trend-up"></i></div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-info">
+            <span class="metric-label">ATOMIC ORDERS</span>
+            <span class="metric-val" id="metric-orders">5,009</span>
+            <span class="metric-sub">With embedded line items</span>
+          </div>
+          <div class="metric-icon bg-amber"><i class="fa-solid fa-box-archive"></i></div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-info">
+            <span class="metric-label">UNIQUE CUSTOMERS</span>
+            <span class="metric-val" id="metric-customers">793</span>
+            <span class="metric-sub">Referenced by customerId</span>
+          </div>
+          <div class="metric-icon bg-purple"><i class="fa-solid fa-users"></i></div>
+        </div>
       </div>
-      <div class="topbar-actions">
-        <!-- Live Teacher Demo Role Switcher -->
-        <span style="font-size: 0.8rem; font-weight:600; color:var(--text-muted);">Switch Demo Role:</span>
-        <button class="btn btn-secondary btn-sm role-switch-btn" data-role="admin"><i class="fa-solid fa-shield"></i> Admin</button>
-        <button class="btn btn-secondary btn-sm role-switch-btn" data-role="manager"><i class="fa-solid fa-user-tie"></i> Manager</button>
-        <button class="btn btn-secondary btn-sm role-switch-btn" data-role="cashier"><i class="fa-solid fa-cash-register"></i> Cashier</button>
+
+      <!-- Pipeline 1: Sales & Profit by Category -->
+      <div class="showcase-card">
+        <div class="card-header">
+          <div>
+            <h3><i class="fa-solid fa-chart-column text-blue"></i> Pipeline 1: Sales & Profit by Category</h3>
+            <p>Calculates total sales and net profit grouped by product categories using <code>$unwind</code>, <code>$lookup</code>, and <code>$group</code>.</p>
+          </div>
+          <button class="btn btn-outline toggle-code-btn" data-target="code-pipeline-1">
+            <i class="fa-solid fa-code"></i> View MongoDB Query
+          </button>
+        </div>
+
+        <div class="card-body">
+          <div class="chart-wrapper">
+            <canvas id="chart-category"></canvas>
+          </div>
+          
+          <div class="query-box" id="code-pipeline-1">
+            <div class="query-header"><span>MongoDB Aggregation Query (Pipeline 1)</span></div>
+            <pre><code>db.orders.aggregate([
+  // 1. Unwind embedded order items array into individual documents
+  { $unwind: "$items" },
+
+  // 2. Lookup (Join) with products collection to fetch Category
+  {
+    $lookup: {
+      from: "products",
+      localField: "items.productId",
+      foreignField: "productId",
+      as: "product"
+    }
+  },
+  { $unwind: "$product" },
+
+  // 3. Group by Category and sum total sales & profit
+  {
+    $group: {
+      _id: "$product.category",
+      totalSales: { $sum: "$items.sales" },
+      totalProfit: { $sum: "$items.profit" },
+      itemCount: { $sum: 1 }
+    }
+  },
+
+  // 4. Sort descending by highest sales
+  { $sort: { totalSales: -1 } }
+]);</code></pre>
+          </div>
+        </div>
       </div>
-    </header>
 
-    <!-- Content Area -->
-    <main class="content-area">
+      <!-- Pipeline 2: Monthly Timeline Trend -->
+      <div class="showcase-card">
+        <div class="card-header">
+          <div>
+            <h3><i class="fa-solid fa-chart-line text-green"></i> Pipeline 2: Monthly Sales & Profit Trend</h3>
+            <p>Extracts year and month from ISO date fields using MongoDB date expressions <code>$year</code> and <code>$month</code>.</p>
+          </div>
+          <button class="btn btn-outline toggle-code-btn" data-target="code-pipeline-2">
+            <i class="fa-solid fa-code"></i> View MongoDB Query
+          </button>
+        </div>
 
-      <!-- ========================================== -->
-      <!-- TAB 1: ANALYTICS DASHBOARD                 -->
-      <!-- ========================================== -->
-      <section class="tab-content active" id="tab-analytics">
-        <!-- 4 Summary KPI Cards -->
-        <div class="kpi-grid">
-          <div class="kpi-card">
-            <div>
-              <div class="kpi-title">Total Revenue</div>
-              <div class="kpi-value" id="kpi-sales">$0.00</div>
-              <div class="kpi-sub">Across 5,009 orders</div>
-            </div>
-            <div class="kpi-icon icon-sales"><i class="fa-solid fa-dollar-sign"></i></div>
+        <div class="card-body">
+          <div class="chart-wrapper">
+            <canvas id="chart-timeline"></canvas>
           </div>
-          <div class="kpi-card">
-            <div>
-              <div class="kpi-title">Net Profit</div>
-              <div class="kpi-value" id="kpi-profit" style="color:var(--success);">$0.00</div>
-              <div class="kpi-sub">Overall profit margin ~12.5%</div>
-            </div>
-            <div class="kpi-icon icon-profit"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          
+          <div class="query-box" id="code-pipeline-2">
+            <div class="query-header"><span>MongoDB Aggregation Query (Pipeline 2)</span></div>
+            <pre><code>db.orders.aggregate([
+  // 1. Group by Year and Month extracted from orderDate field
+  {
+    $group: {
+      _id: {
+        year: { $year: "$orderDate" },
+        month: { $month: "$orderDate" }
+      },
+      totalSales: { $sum: "$totals.sales" },
+      totalProfit: { $sum: "$totals.profit" },
+      orderCount: { $sum: 1 }
+    }
+  },
+
+  // 2. Project clean period string (YYYY-MM) and round numbers
+  {
+    $project: {
+      _id: 0,
+      period: {
+        $concat: [
+          { $toString: "$_id.year" },
+          "-",
+          { $cond: [{ $lt: ["$_id.month", 10] }, { $concat: ["0", { $toString: "$_id.month" }] }, { $toString: "$_id.month" }] }
+        ]
+      },
+      totalSales: { $round: ["$totalSales", 2] },
+      totalProfit: { $round: ["$totalProfit", 2] },
+      orderCount: 1
+    }
+  },
+
+  // 3. Chronological sorting
+  { $sort: { period: 1 } }
+]);</code></pre>
           </div>
-          <div class="kpi-card">
+        </div>
+      </div>
+
+      <!-- 2-Column Grid: Top Customers & Shipping Time -->
+      <div class="grid-2">
+        <!-- Pipeline 3: Top Customers -->
+        <div class="showcase-card">
+          <div class="card-header">
             <div>
-              <div class="kpi-title">Total Orders</div>
-              <div class="kpi-value" id="kpi-orders">0</div>
-              <div class="kpi-sub">Grouped atomic orders</div>
+              <h3><i class="fa-solid fa-trophy text-amber"></i> Pipeline 3: Top 5 Customers</h3>
+              <p>Top lifetime spenders using <code>$group</code>, <code>$sort</code>, <code>$limit</code>, and <code>$lookup</code>.</p>
             </div>
-            <div class="kpi-icon icon-orders"><i class="fa-solid fa-receipt"></i></div>
+            <button class="btn btn-outline toggle-code-btn" data-target="code-pipeline-3">
+              <i class="fa-solid fa-code"></i> Query
+            </button>
           </div>
-          <div class="kpi-card">
-            <div>
-              <div class="kpi-title">Active Customers</div>
-              <div class="kpi-value" id="kpi-customers">0</div>
-              <div class="kpi-sub">Across 4 US regions</div>
+          <div class="card-body">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Segment</th>
+                  <th>Total Spent</th>
+                  <th>Profit</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-top-customers">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+
+            <div class="query-box" id="code-pipeline-3">
+              <div class="query-header"><span>MongoDB Aggregation Query (Pipeline 3)</span></div>
+              <pre><code>db.orders.aggregate([
+  {
+    $group: {
+      _id: "$customerId",
+      totalSpent: { $sum: "$totals.sales" },
+      totalProfit: { $sum: "$totals.profit" },
+      totalOrders: { $sum: 1 }
+    }
+  },
+  { $sort: { totalSpent: -1 } },
+  { $limit: 5 },
+  {
+    $lookup: {
+      from: "customers",
+      localField: "_id",
+      foreignField: "customerId",
+      as: "customer"
+    }
+  },
+  { $unwind: "$customer" }
+]);</code></pre>
             </div>
-            <div class="kpi-icon icon-customers"><i class="fa-solid fa-user-group"></i></div>
           </div>
         </div>
 
-        <!-- 6 Interactive Aggregation Visualizations Grid -->
-        <div class="charts-grid">
-          <!-- Chart 1: Sales & Profit by Year-Month -->
-          <div class="chart-card">
-            <div class="chart-header">
-              <h3>Monthly Sales & Net Profit Timeline</h3>
-              <span>Aggregation: $year & $month grouping</span>
+        <!-- Pipeline 4: Shipping Transit Days -->
+        <div class="showcase-card">
+          <div class="card-header">
+            <div>
+              <h3><i class="fa-solid fa-truck-fast text-purple"></i> Pipeline 4: Shipping Mode Transit</h3>
+              <p>Average delivery days computed via date subtraction arithmetic in <code>$project</code>.</p>
             </div>
-            <div class="chart-container">
-              <canvas id="chart-sales-profit"></canvas>
-            </div>
+            <button class="btn btn-outline toggle-code-btn" data-target="code-pipeline-4">
+              <i class="fa-solid fa-code"></i> Query
+            </button>
           </div>
-
-          <!-- Chart 2: Category & Sub-Category Performance -->
-          <div class="chart-card">
-            <div class="chart-header">
-              <h3>Category Revenue & Profit</h3>
-              <span>Aggregation: Catalog $lookup & $group</span>
-            </div>
-            <div class="chart-container">
-              <canvas id="chart-category"></canvas>
-            </div>
-          </div>
-
-          <!-- Chart 3: Customer Segment Split -->
-          <div class="chart-card">
-            <div class="chart-header">
-              <h3>Sales by Customer Segment</h3>
-              <span>Consumer vs Corporate vs Home Office</span>
-            </div>
-            <div class="chart-container">
-              <canvas id="chart-segment"></canvas>
-            </div>
-          </div>
-
-          <!-- Chart 4: Geographical Regional Profit -->
-          <div class="chart-card">
-            <div class="chart-header">
-              <h3>Profit by US Region</h3>
-              <span>Aggregation: 2-tier State & Region grouping</span>
-            </div>
-            <div class="chart-container">
-              <canvas id="chart-geography"></canvas>
-            </div>
-          </div>
-
-          <!-- Chart 5: Discount Level Impact on Profitability -->
-          <div class="chart-card">
-            <div class="chart-header">
-              <h3>Discount Level Impact & Loss Rate</h3>
-              <span>Highlights loss-making orders at &gt;20% discount</span>
-            </div>
-            <div class="chart-container">
-              <canvas id="chart-discount"></canvas>
-            </div>
-          </div>
-
-          <!-- Chart 6: Shipping Transit Times -->
-          <div class="chart-card">
-            <div class="chart-header">
-              <h3>Average Shipping Days by Mode</h3>
-              <span>Aggregation: $subtract BSON dates</span>
-            </div>
-            <div class="chart-container">
+          <div class="card-body">
+            <div class="chart-wrapper-sm">
               <canvas id="chart-shipping"></canvas>
             </div>
-          </div>
-        </div>
 
-        <!-- Summary Tables (Top Customers & Top Products) -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-          <div class="table-card">
-            <div class="table-header">
-              <div class="table-header-left">
-                <h3>Top VIP Customers by Sales</h3>
-              </div>
-            </div>
-            <div class="table-responsive">
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Customer</th>
-                    <th>Segment</th>
-                    <th>State</th>
-                    <th>Total Spend</th>
-                    <th>Profit</th>
-                  </tr>
-                </thead>
-                <tbody id="tbody-top-customers"></tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="table-card">
-            <div class="table-header">
-              <div class="table-header-left">
-                <h3>Top Profitable Catalog Products</h3>
-              </div>
-            </div>
-            <div class="table-responsive">
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Units Sold</th>
-                    <th>Sales</th>
-                    <th>Net Profit</th>
-                  </tr>
-                </thead>
-                <tbody id="tbody-top-products"></tbody>
-              </table>
+            <div class="query-box" id="code-pipeline-4">
+              <div class="query-header"><span>MongoDB Aggregation Query (Pipeline 4)</span></div>
+              <pre><code>db.orders.aggregate([
+  // 1. Subtract orderDate from shipDate (milliseconds to days)
+  {
+    $project: {
+      shipMode: 1,
+      shippingDays: {
+        $divide: [{ $subtract: ["$shipDate", "$orderDate"] }, 86400000]
+      }
+    }
+  },
+  // 2. Calculate average days per ship mode
+  {
+    $group: {
+      _id: "$shipMode",
+      avgShippingDays: { $avg: "$shippingDays" },
+      orderCount: { $sum: 1 }
+    }
+  },
+  { $sort: { avgShippingDays: 1 } }
+]);</code></pre>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- ========================================== -->
-      <!-- TAB 2: ORDER FULFILLMENT                   -->
-      <!-- ========================================== -->
-      <section class="tab-content" id="tab-orders">
-        <div class="table-card">
-          <div class="table-header">
-            <div class="table-header-left">
-              <h3>Orders Directory</h3>
-            </div>
-            <div class="filter-bar">
-              <input type="text" id="order-search" class="search-input" placeholder="Search Order ID / Customer ID...">
-              <select id="order-filter-status" class="select-filter">
-                <option value="">All Shipping Statuses</option>
-                <option value="Shipped">Shipped</option>
-                <option value="Processing">Processing</option>
-                <option value="Delivered">Delivered</option>
-                <option value="Cancelled">Cancelled</option>
-              </select>
-              <select id="order-filter-mode" class="select-filter">
-                <option value="">All Ship Modes</option>
-                <option value="Standard Class">Standard Class</option>
-                <option value="Second Class">Second Class</option>
-                <option value="First Class">First Class</option>
-                <option value="Same Day">Same Day</option>
-              </select>
-              <button class="btn btn-primary rbac-manager-up" onclick="App.openCreateOrderModal()">
-                <i class="fa-solid fa-plus"></i> New Order
-              </button>
-            </div>
-          </div>
-          <div class="table-responsive">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Order ID</th>
-                  <th>Customer</th>
-                  <th>Order Date</th>
-                  <th>Ship Mode</th>
-                  <th>Items</th>
-                  <th>Total Sales</th>
-                  <th>Profit</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="tbody-orders"></tbody>
-            </table>
-          </div>
-          <div class="pagination-bar">
-            <span id="order-page-info">Showing page 1</span>
-            <div class="pagination-controls">
-              <button class="btn btn-secondary btn-sm" id="order-btn-prev" onclick="App.state.orders.page--; App.loadOrders();">Previous</button>
-              <button class="btn btn-secondary btn-sm" id="order-btn-next" onclick="App.state.orders.page++; App.loadOrders();">Next</button>
-            </div>
-          </div>
+    </section>
+
+
+    <!-- ============================================================= -->
+    <!-- TAB 2: CRUD OPERATIONS (INTERACTIVE TESTER)                   -->
+    <!-- ============================================================= -->
+    <section id="tab-crud" class="tab-panel">
+      
+      <div class="banner">
+        <div>
+          <h3><i class="fa-solid fa-terminal text-green"></i> Interactive MongoDB CRUD Operations</h3>
+          <p>Test Create, Read, Update, and Delete operations on the <code>products</code> collection. Every action executes a real MongoDB command and shows you the query syntax.</p>
         </div>
-      </section>
+      </div>
 
-      <!-- ========================================== -->
-      <!-- TAB 3: CUSTOMER MANAGEMENT                 -->
-      <!-- ========================================== -->
-      <section class="tab-content" id="tab-customers">
-        <div class="table-card">
-          <div class="table-header">
-            <div class="table-header-left">
-              <h3>Customer Profiles</h3>
-            </div>
-            <div class="filter-bar">
-              <input type="text" id="cust-search" class="search-input" placeholder="Search by Customer Name or ID...">
-              <select id="cust-filter-segment" class="select-filter">
-                <option value="">All Segments</option>
-                <option value="Consumer">Consumer</option>
-                <option value="Corporate">Corporate</option>
-                <option value="Home Office">Home Office</option>
-              </select>
-              <button class="btn btn-primary rbac-manager-up" onclick="App.openAddCustomerModal()">
-                <i class="fa-solid fa-user-plus"></i> Add Customer
-              </button>
-            </div>
-          </div>
-          <div class="table-responsive">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Customer ID</th>
-                  <th>Customer Name</th>
-                  <th>Segment</th>
-                  <th>City, State (Zip)</th>
-                  <th>Region</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="tbody-customers"></tbody>
-            </table>
-          </div>
-          <div class="pagination-bar">
-            <span id="cust-page-info">Showing page 1</span>
-            <div class="pagination-controls">
-              <button class="btn btn-secondary btn-sm" id="cust-btn-prev" onclick="App.state.customers.page--; App.loadCustomers();">Previous</button>
-              <button class="btn btn-secondary btn-sm" id="cust-btn-next" onclick="App.state.customers.page++; App.loadCustomers();">Next</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================================== -->
-      <!-- TAB 4: PRODUCT CATALOG                     -->
-      <!-- ========================================== -->
-      <section class="tab-content" id="tab-products">
-        <div class="table-card">
-          <div class="table-header">
-            <div class="table-header-left">
-              <h3>Product Catalog</h3>
-            </div>
-            <div class="filter-bar">
-              <input type="text" id="prod-search" class="search-input" placeholder="Search Product Name or ID...">
-              <select id="prod-filter-category" class="select-filter">
+      <div class="crud-layout">
+        
+        <!-- Left: Actions & Forms -->
+        <div class="crud-controls">
+          
+          <!-- READ / SEARCH -->
+          <div class="action-card">
+            <h4><i class="fa-solid fa-magnifying-glass text-blue"></i> 1. READ / FIND (Query Documents)</h4>
+            <div class="form-row">
+              <input type="text" id="crud-search-input" class="form-control" placeholder="Search product name (e.g. Chair, Phone)...">
+              <select id="crud-filter-cat" class="form-control">
                 <option value="">All Categories</option>
                 <option value="Furniture">Furniture</option>
                 <option value="Office Supplies">Office Supplies</option>
                 <option value="Technology">Technology</option>
               </select>
-              <button class="btn btn-primary rbac-manager-up" onclick="App.openAddProductModal()">
-                <i class="fa-solid fa-plus"></i> Add Product
-              </button>
+              <button class="btn btn-primary" id="btn-run-search"><i class="fa-solid fa-filter"></i> Run Find()</button>
             </div>
           </div>
+
+          <!-- CREATE / INSERT -->
+          <div class="action-card">
+            <h4><i class="fa-solid fa-plus-circle text-green"></i> 2. CREATE / INSERT (Add Document)</h4>
+            <form id="form-create-product">
+              <div class="form-grid">
+                <input type="text" id="new-prod-id" class="form-control" placeholder="Product ID (e.g. TEC-PH-99999)" required>
+                <input type="text" id="new-prod-name" class="form-control" placeholder="Product Name" required>
+                <select id="new-prod-cat" class="form-control" required>
+                  <option value="Technology">Technology</option>
+                  <option value="Furniture">Furniture</option>
+                  <option value="Office Supplies">Office Supplies</option>
+                </select>
+                <input type="text" id="new-prod-subcat" class="form-control" placeholder="Sub-Category (e.g. Phones)" required>
+              </div>
+              <button type="submit" class="btn btn-success mt-2"><i class="fa-solid fa-floppy-disk"></i> Execute insertOne()</button>
+            </form>
+          </div>
+
+          <!-- Executed Query Terminal Output -->
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <span><i class="fa-solid fa-terminal"></i> Last Executed MongoDB Command</span>
+              <span class="status-pill" id="last-op-status">Ready</span>
+            </div>
+            <pre class="terminal-body" id="crud-terminal-code">db.products.find({}).limit(10);</pre>
+          </div>
+
+        </div>
+
+        <!-- Right: Results Table -->
+        <div class="crud-results">
+          <div class="results-header">
+            <h4><i class="fa-solid fa-table text-purple"></i> Matching Documents in MongoDB</h4>
+            <span class="count-badge" id="results-count">Showing 10 documents</span>
+          </div>
+
           <div class="table-responsive">
             <table class="data-table">
               <thead>
@@ -376,315 +380,221 @@
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody id="tbody-products"></tbody>
+              <tbody id="crud-products-tbody">
+                <!-- Dynamically Filled -->
+              </tbody>
             </table>
           </div>
-          <div class="pagination-bar">
-            <span id="prod-page-info">Showing page 1</span>
-            <div class="pagination-controls">
-              <button class="btn btn-secondary btn-sm" id="prod-btn-prev" onclick="App.state.products.page--; App.loadProducts();">Previous</button>
-              <button class="btn btn-secondary btn-sm" id="prod-btn-next" onclick="App.state.products.page++; App.loadProducts();">Next</button>
-            </div>
-          </div>
         </div>
-      </section>
 
-      <!-- ========================================== -->
-      <!-- TAB 5: INVENTORY VIEW                      -->
-      <!-- ========================================== -->
-      <section class="tab-content" id="tab-inventory">
-        <div class="table-card">
-          <div class="table-header">
-            <div class="table-header-left">
-              <h3>Inventory Sales Movement & Volume</h3>
-            </div>
-            <div class="filter-bar">
-              <input type="text" id="inv-search" class="search-input" placeholder="Search SKU or Product...">
-              <select id="inv-filter-category" class="select-filter">
-                <option value="">All Categories</option>
-                <option value="Furniture">Furniture</option>
-                <option value="Office Supplies">Office Supplies</option>
-                <option value="Technology">Technology</option>
-              </select>
-            </div>
-          </div>
-          <div class="table-responsive">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>SKU / Product ID</th>
-                  <th>Product Name</th>
-                  <th>Category</th>
-                  <th>Quantity Sold</th>
-                  <th>Total Sales Volume</th>
-                  <th>Total Profit</th>
-                  <th>Order Frequency</th>
-                </tr>
-              </thead>
-              <tbody id="tbody-inventory"></tbody>
-            </table>
-          </div>
-          <div class="pagination-bar">
-            <span id="inv-page-info">Showing page 1</span>
-            <div class="pagination-controls">
-              <button class="btn btn-secondary btn-sm" id="inv-btn-prev" onclick="App.state.inventory.page--; App.loadInventory();">Previous</button>
-              <button class="btn btn-secondary btn-sm" id="inv-btn-next" onclick="App.state.inventory.page++; App.loadInventory();">Next</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- ========================================== -->
-  <!-- MODALS                                     -->
-  <!-- ========================================== -->
-
-  <!-- Modal: Customer Add/Edit -->
-  <div class="modal-overlay" id="modal-customer">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="modal-customer-title">Customer Form</h3>
-        <button class="modal-close">&times;</button>
       </div>
-      <form id="form-customer" onsubmit="App.saveCustomer(event)">
-        <div class="modal-body">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Customer ID</label>
-              <input type="text" id="cust-form-id" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label>Customer Name</label>
-              <input type="text" id="cust-form-name" class="form-control" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Customer Segment</label>
-            <select id="cust-form-segment" class="form-control" required>
-              <option value="Consumer">Consumer</option>
-              <option value="Corporate">Corporate</option>
-              <option value="Home Office">Home Office</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>City</label>
-              <input type="text" id="cust-form-city" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label>State</label>
-              <input type="text" id="cust-form-state" class="form-control" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Postal Code (5 digits)</label>
-              <input type="text" id="cust-form-zip" class="form-control" pattern="\d{5}" required>
-            </div>
-            <div class="form-group">
-              <label>Region</label>
-              <select id="cust-form-region" class="form-control" required>
-                <option value="East">East</option>
-                <option value="West">West</option>
-                <option value="Central">Central</option>
-                <option value="South">South</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-modal-cancel">Cancel</button>
-          <button type="submit" class="btn btn-primary">Save Customer</button>
-        </div>
-      </form>
-    </div>
-  </div>
 
-  <!-- Modal: View Customer Orders -->
-  <div class="modal-overlay" id="modal-cust-orders">
-    <div class="modal" style="max-width: 750px;">
-      <div class="modal-header">
-        <h3 id="modal-cust-orders-title">Customer Orders</h3>
-        <button class="modal-close">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="table-responsive">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Order ID</th>
-                <th>Order Date</th>
-                <th>Items</th>
-                <th>Total Sales</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="tbody-modal-cust-orders"></tbody>
-          </table>
+    </section>
+
+
+    <!-- ============================================================= -->
+    <!-- TAB 3: SCHEMA DESIGN & COLLECTIONS (EMBEDDING VS REFERENCING) -->
+    <!-- ============================================================= -->
+    <section id="tab-schema" class="tab-panel">
+      
+      <div class="banner">
+        <div>
+          <h3><i class="fa-solid fa-database text-blue"></i> MongoDB Schema Architecture & Indexing</h3>
+          <p>Inspect collections, indexes, and document structures. Perfect for answering schema design questions in your viva!</p>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-modal-cancel">Close</button>
-      </div>
-    </div>
-  </div>
 
-  <!-- Modal: Product Add/Edit -->
-  <div class="modal-overlay" id="modal-product">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="modal-product-title">Product Form</h3>
-        <button class="modal-close">&times;</button>
-      </div>
-      <form id="form-product" onsubmit="App.saveProduct(event)">
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Product ID (SKU)</label>
-            <input type="text" id="prod-form-id" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Product Name</label>
-            <input type="text" id="prod-form-name" class="form-control" required>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Category</label>
-              <select id="prod-form-category" class="form-control" required>
-                <option value="Furniture">Furniture</option>
-                <option value="Office Supplies">Office Supplies</option>
-                <option value="Technology">Technology</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Sub-Category</label>
-              <input type="text" id="prod-form-subcategory" class="form-control" required>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-modal-cancel">Cancel</button>
-          <button type="submit" class="btn btn-primary">Save Product</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Modal: Order Details -->
-  <div class="modal-overlay" id="modal-order-details">
-    <div class="modal" style="max-width: 750px;">
-      <div class="modal-header">
-        <h3 id="modal-order-title">Order Details</h3>
-        <button class="modal-close">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div id="modal-order-meta"></div>
-        <div class="table-responsive">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Item / Product</th>
-                <th>Qty</th>
-                <th>Sales</th>
-                <th>Discount</th>
-                <th>Profit</th>
-              </tr>
-            </thead>
-            <tbody id="tbody-modal-order-items"></tbody>
-          </table>
-        </div>
-        <div style="margin-top: 16px; text-align: right; font-size: 0.95rem;">
-          <p><strong>Total Sales:</strong> <span id="modal-order-total-sales">$0.00</span></p>
-          <p><strong>Total Profit:</strong> <span id="modal-order-total-profit" style="color:var(--success);">$0.00</span></p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-modal-cancel">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal: Update Order Shipping Status -->
-  <div class="modal-overlay" id="modal-update-status">
-    <div class="modal" style="max-width: 400px;">
-      <div class="modal-header">
-        <h3>Update Shipping Status</h3>
-        <button class="modal-close">&times;</button>
-      </div>
-      <form onsubmit="App.saveOrderStatus(event)">
-        <div class="modal-body">
-          <input type="hidden" id="status-form-order-id">
-          <div class="form-group">
-            <label>Select New Status</label>
-            <select id="status-form-select" class="form-control" required>
-              <option value="Processing">Processing</option>
-              <option value="Shipped">Shipped</option>
-              <option value="Delivered">Delivered</option>
-              <option value="Cancelled">Cancelled</option>
-            </select>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-modal-cancel">Cancel</button>
-          <button type="submit" class="btn btn-primary">Update Status</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Modal: Create New Order -->
-  <div class="modal-overlay" id="modal-create-order">
-    <div class="modal" style="max-width: 750px;">
-      <div class="modal-header">
-        <h3>Create New Order</h3>
-        <button class="modal-close">&times;</button>
-      </div>
-      <form onsubmit="App.saveNewOrder(event)">
-        <div class="modal-body">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Customer ID (Ref)</label>
-              <input type="text" id="new-order-cust-id" class="form-control" value="CG-12520" required>
-            </div>
-            <div class="form-group">
-              <label>Ship Mode</label>
-              <select id="new-order-mode" class="form-control" required>
-                <option value="Standard Class">Standard Class</option>
-                <option value="Second Class">Second Class</option>
-                <option value="First Class">First Class</option>
-                <option value="Same Day">Same Day</option>
-              </select>
-            </div>
+      <!-- Schema Design Decision Highlight -->
+      <div class="comparison-card">
+        <h3><i class="fa-solid fa-scale-balanced text-amber"></i> Core Viva Decision: Embedding vs. Referencing</h3>
+        <div class="comparison-grid">
+          <div class="comparison-col">
+            <div class="col-title text-green"><i class="fa-solid fa-cubes"></i> What We EMBEDDED: Order Items in Orders</div>
+            <p><strong>Decision:</strong> Each <code>order</code> document contains an embedded array of <code>items: [...]</code>.</p>
+            <ul>
+              <li><strong>Atomicity:</strong> An order and its line items represent a single transaction created together.</li>
+              <li><strong>Historical Snapshot:</strong> Prices and discounts at purchase time remain immutable even if the catalog changes later.</li>
+              <li><strong>Bounded Cardinality:</strong> A retail order has only 1–15 items; it will never exceed MongoDB's <strong>16 MB document limit</strong>.</li>
+            </ul>
           </div>
 
-          <label style="font-weight: 600; font-size: 0.85rem; margin-top: 10px; display: block;">Order Line Items (Embedded)</label>
-          <table class="data-table" style="margin-top: 8px;">
-            <thead>
-              <tr>
-                <th>Product Name</th>
-                <th>Qty</th>
-                <th>Sales ($)</th>
-                <th>Discount</th>
-                <th>Profit ($)</th>
-              </tr>
-            </thead>
-            <tbody id="tbody-draft-items"></tbody>
-          </table>
-          <button type="button" class="btn btn-secondary btn-sm" style="margin-top: 8px;" onclick="App.addDraftItem()">
-            <i class="fa-solid fa-plus"></i> Add Line Item
-          </button>
+          <div class="comparison-col">
+            <div class="col-title text-blue"><i class="fa-solid fa-link"></i> What We REFERENCED: Customers in Orders</div>
+            <p><strong>Decision:</strong> Orders only store a reference: <code>customerId: "CG-12520"</code>.</p>
+            <ul>
+              <li><strong>Unbounded Growth:</strong> A loyal customer places hundreds of orders. Embedding orders inside customer documents would exceed the 16MB document limit.</li>
+              <li><strong>Centralized Updates:</strong> If Claire Gute changes her address, updating one document in <code>customers</code> avoids modifying 100 historical orders.</li>
+            </ul>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-modal-cancel">Cancel</button>
-          <button type="submit" class="btn btn-primary">Submit Order</button>
-        </div>
-      </form>
-    </div>
-  </div>
+      </div>
 
-  <!-- Application Logic Scripts -->
+      <!-- Collections Inspection -->
+      <div class="collections-grid">
+        
+        <!-- Collection 1: Orders -->
+        <div class="collection-card">
+          <div class="coll-header">
+            <h4><i class="fa-solid fa-folder text-blue"></i> db.orders</h4>
+            <span class="doc-count">5,009 Documents</span>
+          </div>
+          <div class="coll-body">
+            <div class="index-tag"><strong>Indexes:</strong> <code>{ orderId: 1 }</code>, <code>{ "items.productId": 1 }</code> (Multikey), <code>{ orderDate: -1, customerId: 1 }</code></div>
+            <pre class="json-preview"><code>{
+  "_id": ObjectId("..."),
+  "orderId": "CA-2016-152156",
+  "customerId": "CG-12520",  // Reference
+  "orderDate": ISODate("2016-11-08"),
+  "shipDate": ISODate("2016-11-11"),
+  "shipMode": "Second Class",
+  "items": [                  // Embedded Array
+    {
+      "productId": "FUR-BO-10001798",
+      "productName": "Bush Somerset Bookcase",
+      "sales": 261.96,
+      "quantity": 2,
+      "discount": 0,
+      "profit": 41.91
+    }
+  ],
+  "totals": {
+    "sales": 993.90,
+    "profit": 261.49,
+    "quantity": 5
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Collection 2: Customers -->
+        <div class="collection-card">
+          <div class="coll-header">
+            <h4><i class="fa-solid fa-folder text-purple"></i> db.customers</h4>
+            <span class="doc-count">793 Documents</span>
+          </div>
+          <div class="coll-body">
+            <div class="index-tag"><strong>Indexes:</strong> <code>{ customerId: 1 }</code>, <code>{ name: 1 }</code>, <code>{ "address.state": 1, "address.region": 1 }</code></div>
+            <pre class="json-preview"><code>{
+  "_id": ObjectId("..."),
+  "customerId": "CG-12520",
+  "name": "Claire Gute",
+  "segment": "Consumer",
+  "address": {
+    "city": "Henderson",
+    "state": "Kentucky",
+    "postalCode": "42420",   // Zero-padded 5 digits
+    "region": "South"
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Collection 3: Products -->
+        <div class="collection-card">
+          <div class="coll-header">
+            <h4><i class="fa-solid fa-folder text-green"></i> db.products</h4>
+            <span class="doc-count">1,862 Documents</span>
+          </div>
+          <div class="coll-body">
+            <div class="index-tag"><strong>Indexes:</strong> <code>{ productId: 1 }</code>, <code>{ category: 1, subCategory: 1 }</code> (Compound)</div>
+            <pre class="json-preview"><code>{
+  "_id": ObjectId("..."),
+  "productId": "FUR-BO-10001798",
+  "name": "Bush Somerset Collection Bookcase",
+  "category": "Furniture",
+  "subCategory": "Bookcases"
+}</code></pre>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================= -->
+    <!-- TAB 4: VIVA CHEAT SHEET                                       -->
+    <!-- ============================================================= -->
+    <section id="tab-viva" class="tab-panel">
+      
+      <div class="banner">
+        <div>
+          <h3><i class="fa-solid fa-user-graduate text-purple"></i> NoSQL Viva Examiner Questions & Answers</h3>
+          <p>Read these clear, direct answers to ace your practical exam and viva evaluation!</p>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        
+        <div class="faq-item">
+          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q1: What is NoSQL and why did you use MongoDB instead of SQL / MySQL?</div>
+          <div class="faq-a">
+            <strong>Answer:</strong> In SQL, data is strictly organized into rectangular tables with rigid schemas and foreign keys. In MongoDB, data is stored as self-contained <strong>BSON (Binary JSON) documents</strong>. We used MongoDB because retail transactions naturally contain nested items (one order has multiple products). Document models allow embedding related data together for faster reads, avoiding expensive table joins, and providing flexible, agile schema evolution.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q2: Explain Embedding vs. Referencing in your schema.</div>
+          <div class="faq-a">
+            <strong>Answer:</strong> 
+            <ul>
+              <li><strong>Embedding (1-to-Few):</strong> We embedded line items inside <code>orders</code> because an order and its items are created together and represent an immutable transaction snapshot.</li>
+              <li><strong>Referencing (1-to-Many):</strong> We referenced <code>customers</code> in <code>orders</code> because a customer can have hundreds of orders over time. Embedding all orders in customer documents would cause unbounded array growth and hit MongoDB's <strong>16MB document size limit</strong>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q3: What is an Aggregation Pipeline and what are the main stages you used?</div>
+          <div class="faq-a">
+            <strong>Answer:</strong> An Aggregation Pipeline processes documents sequentially through stages like an assembly line. The stages used in our project:
+            <ul>
+              <li><code>$match</code>: Filters documents by criteria (like SQL <code>WHERE</code>).</li>
+              <li><code>$unwind</code>: Deconstructs an array field so each element becomes a separate document.</li>
+              <li><code>$group</code>: Groups documents by key and computes aggregates using <code>$sum</code>, <code>$avg</code> (like SQL <code>GROUP BY</code>).</li>
+              <li><code>$project</code>: Reshapes output fields or computes derived values (like SQL <code>SELECT</code>).</li>
+              <li><code>$sort</code>: Sorts output ascending or descending (like SQL <code>ORDER BY</code>).</li>
+              <li><code>$lookup</code>: Performs a left outer join with another collection (like SQL <code>LEFT JOIN</code>).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q4: What indexes did you create and how do they speed up queries?</div>
+          <div class="faq-a">
+            <strong>Answer:</strong> Without indexes, MongoDB must perform a <em>COLLSCAN</em> (scanning every document in the collection). With a B-Tree index, it does an <em>IXSCAN</em> in $O(\log N)$ time.
+            <ul>
+              <li><strong>Multikey Index on <code>items.productId</code> in orders:</strong> Because <code>items</code> is an array, this index creates an entry for every product in every order for fast lookups.</li>
+              <li><strong>Compound Index on <code>{ category: 1, subCategory: 1 }</code> in products:</strong> Speeds up catalog filtering following the prefix rule.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q5: What is BSON?</div>
+          <div class="faq-a">
+            <strong>Answer:</strong> BSON stands for <strong>Binary JSON</strong>. It is the binary serialization format MongoDB uses to store documents on disk and over the network. BSON extends standard JSON by adding native data types not found in JSON, such as <code>Date</code>, <code>ObjectId</code>, <code>Int32</code>, <code>Int64</code>, and binary data.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q6: What is the <code>_id</code> field in MongoDB?</div>
+          <div class="faq-a">
+            <strong>Answer:</strong> Every MongoDB document must have a unique primary key called <code>_id</code>. If omitted on insertion, MongoDB automatically generates a 12-byte <code>ObjectId</code> consisting of a 4-byte timestamp, a 5-byte random value, and a 3-byte incrementing counter.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>US Retail Store Management System | Built with <strong>MongoDB</strong>, <strong>Express</strong>, and <strong>Node.js</strong> for NoSQL Database Lab Evaluation</p>
+  </footer>
+
+  <!-- Scripts -->
   <script src="js/api.js"></script>
   <script src="js/charts.js"></script>
   <script src="js/app.js"></script>

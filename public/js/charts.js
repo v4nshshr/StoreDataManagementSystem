@@ -1,5 +1,5 @@
 /**
- * Chart.js Visualizations for US Retail Store Analytics
+ * Simple & Clear Chart.js Visualizations for NoSQL Project Demo
  */
 const DashboardCharts = {
   instances: {},
@@ -11,15 +11,80 @@ const DashboardCharts = {
     }
   },
 
-  // 1. Sales and Profit by Year-Month
+  // 1. Pipeline 1: Category Sales & Profit (Grouped Bar Chart)
+  renderCategoryPerformance(canvasId, data) {
+    this.destroyChart(canvasId);
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const categoryTotals = {};
+    (data || []).forEach((item) => {
+      const cat = item.category;
+      if (!cat) return;
+      if (!categoryTotals[cat]) {
+        categoryTotals[cat] = { sales: 0, profit: 0 };
+      }
+      categoryTotals[cat].sales += (item.totalSales ?? item.categorySales ?? 0);
+      categoryTotals[cat].profit += (item.totalProfit ?? item.categoryProfit ?? 0);
+    });
+
+    const labels = Object.keys(categoryTotals);
+    const sales = labels.map((c) => Math.round(categoryTotals[c].sales));
+    const profits = labels.map((c) => Math.round(categoryTotals[c].profit));
+
+    this.instances[canvasId] = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Total Sales ($)',
+            data: sales,
+            backgroundColor: '#3b82f6',
+            borderRadius: 6
+          },
+          {
+            label: 'Net Profit ($)',
+            data: profits,
+            backgroundColor: '#10b981',
+            borderRadius: 6
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top' },
+          tooltip: {
+            callbacks: {
+              label: (ctx) => ` ${ctx.dataset.label}: $${ctx.raw.toLocaleString()}`
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              callback: (val) => '$' + (val >= 1000 ? (val / 1000) + 'k' : val)
+            }
+          }
+        }
+      }
+    });
+  },
+
+  // 2. Pipeline 2: Monthly Timeline (Line Chart)
   renderSalesProfitTimeline(canvasId, data) {
     this.destroyChart(canvasId);
-    const ctx = document.getElementById(canvasId)?.getContext('2d');
-    if (!ctx) return;
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
 
-    const labels = data.map((d) => d.period);
-    const sales = data.map((d) => d.totalSales);
-    const profits = data.map((d) => d.totalProfit);
+    const labels = (data || []).map((d) => d.period);
+    const sales = (data || []).map((d) => d.totalSales);
+    const profits = (data || []).map((d) => d.totalProfit);
 
     this.instances[canvasId] = new Chart(ctx, {
       type: 'line',
@@ -27,7 +92,7 @@ const DashboardCharts = {
         labels,
         datasets: [
           {
-            label: 'Sales ($)',
+            label: 'Monthly Sales ($)',
             data: sales,
             borderColor: '#2563eb',
             backgroundColor: 'rgba(37, 99, 235, 0.1)',
@@ -36,7 +101,7 @@ const DashboardCharts = {
             borderWidth: 2
           },
           {
-            label: 'Profit ($)',
+            label: 'Monthly Profit ($)',
             data: profits,
             borderColor: '#10b981',
             backgroundColor: 'rgba(16, 185, 129, 0.1)',
@@ -53,14 +118,14 @@ const DashboardCharts = {
           legend: { position: 'top' },
           tooltip: {
             callbacks: {
-              label: (context) => `${context.dataset.label}: $${context.parsed.y.toLocaleString()}`
+              label: (ctx) => ` ${ctx.dataset.label}: $${ctx.raw.toLocaleString()}`
             }
           }
         },
         scales: {
           y: {
             ticks: {
-              callback: (value) => '$' + (value >= 1000 ? (value / 1000) + 'k' : value)
+              callback: (val) => '$' + (val >= 1000 ? (val / 1000) + 'k' : val)
             }
           }
         }
@@ -68,210 +133,15 @@ const DashboardCharts = {
     });
   },
 
-  // 2. Category Performance (Grouped Bar)
-  renderCategoryPerformance(canvasId, data) {
-    this.destroyChart(canvasId);
-    const ctx = document.getElementById(canvasId)?.getContext('2d');
-    if (!ctx) return;
-
-    // Aggregate by category
-    const categoryTotals = {};
-    data.forEach((item) => {
-      const cat = item.category;
-      if (!cat) return;
-      if (!categoryTotals[cat]) {
-        categoryTotals[cat] = { sales: 0, profit: 0 };
-      }
-      const s = item.totalSales ?? item.categorySales ?? 0;
-      const p = item.totalProfit ?? item.categoryProfit ?? 0;
-      categoryTotals[cat].sales += s;
-      categoryTotals[cat].profit += p;
-    });
-
-    const labels = Object.keys(categoryTotals);
-    const sales = labels.map((c) => Math.round(categoryTotals[c].sales));
-    const profits = labels.map((c) => Math.round(categoryTotals[c].profit));
-
-    this.instances[canvasId] = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels,
-        datasets: [
-          {
-            label: 'Sales ($)',
-            data: sales,
-            backgroundColor: '#3b82f6',
-            borderRadius: 6
-          },
-          {
-            label: 'Profit ($)',
-            data: profits,
-            backgroundColor: '#10b981',
-            borderRadius: 6
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { position: 'top' }
-        },
-        scales: {
-          y: {
-            ticks: {
-              callback: (value) => '$' + (value >= 1000 ? (value / 1000) + 'k' : value)
-            }
-          }
-        }
-      }
-    });
-  },
-
-  // 3. Sales by Customer Segment (Doughnut)
-  renderSegmentSales(canvasId, data) {
-    this.destroyChart(canvasId);
-    const ctx = document.getElementById(canvasId)?.getContext('2d');
-    if (!ctx) return;
-
-    const labels = data.map((d) => d.segment);
-    const sales = data.map((d) => d.totalSales);
-
-    this.instances[canvasId] = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels,
-        datasets: [
-          {
-            data: sales,
-            backgroundColor: ['#6366f1', '#3b82f6', '#f59e0b'],
-            borderWidth: 2,
-            borderColor: '#ffffff'
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { position: 'bottom' },
-          tooltip: {
-            callbacks: {
-              label: (context) => ` ${context.label}: $${context.raw.toLocaleString()} (${Math.round(context.parsed * 100 / sales.reduce((a, b) => a + b, 0))}%)`
-            }
-          }
-        }
-      }
-    });
-  },
-
-  // 4. Profit by US Region (Bar)
-  renderRegionalProfit(canvasId, data) {
-    this.destroyChart(canvasId);
-    const ctx = document.getElementById(canvasId)?.getContext('2d');
-    if (!ctx) return;
-
-    const labels = data.map((d) => d.region);
-    const profits = data.map((d) => d.regionProfit);
-    const sales = data.map((d) => d.regionSales);
-
-    this.instances[canvasId] = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels,
-        datasets: [
-          {
-            label: 'Net Profit ($)',
-            data: profits,
-            backgroundColor: '#10b981',
-            borderRadius: 6
-          },
-          {
-            label: 'Total Sales ($)',
-            data: sales,
-            backgroundColor: '#cbd5e1',
-            borderRadius: 6
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { position: 'top' }
-        }
-      }
-    });
-  },
-
-  // 5. Discount Impact & Loss Rates
-  renderDiscountImpact(canvasId, data) {
-    this.destroyChart(canvasId);
-    const ctx = document.getElementById(canvasId)?.getContext('2d');
-    if (!ctx) return;
-
-    const labels = data.map((d) => d.discountBracket || d.discountTier || 'Discount');
-    const profits = data.map((d) => d.totalProfit || 0);
-    const lossRates = data.map((d) => d.lossRatePercent ?? d.lossPercentage ?? 0);
-
-    this.instances[canvasId] = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels,
-        datasets: [
-          {
-            type: 'bar',
-            label: 'Total Profit ($)',
-            data: profits,
-            backgroundColor: profits.map((p) => (p >= 0 ? '#10b981' : '#ef4444')),
-            borderRadius: 6,
-            yAxisID: 'y'
-          },
-          {
-            type: 'line',
-            label: 'Loss-Making Items Rate (%)',
-            data: lossRates,
-            borderColor: '#dc2626',
-            backgroundColor: '#dc2626',
-            borderWidth: 2,
-            tension: 0.2,
-            yAxisID: 'y1'
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { position: 'top' }
-        },
-        scales: {
-          y: {
-            type: 'linear',
-            position: 'left',
-            title: { display: true, text: 'Net Profit ($)' }
-          },
-          y1: {
-            type: 'linear',
-            position: 'right',
-            grid: { drawOnChartArea: false },
-            title: { display: true, text: 'Loss Rate (%)' },
-            min: 0,
-            max: 100
-          }
-        }
-      }
-    });
-  },
-
-  // 6. Average Shipping Time
+  // 3. Pipeline 3: Shipping Mode Transit Time (Horizontal Bar Chart)
   renderShippingTimes(canvasId, data) {
     this.destroyChart(canvasId);
-    const ctx = document.getElementById(canvasId)?.getContext('2d');
-    if (!ctx) return;
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
 
-    const labels = data.map((d) => d.shipMode);
-    const days = data.map((d) => d.avgShippingDays ?? d.avgDays ?? 0);
+    const labels = (data || []).map((d) => d.shipMode);
+    const days = (data || []).map((d) => d.avgShippingDays ?? d.avgDays ?? 0);
 
     this.instances[canvasId] = new Chart(ctx, {
       type: 'bar',
@@ -292,13 +162,51 @@ const DashboardCharts = {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { display: false }
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: (ctx) => ` ${ctx.raw} days on average`
+            }
+          }
         },
         scales: {
           x: {
-            title: { display: true, text: 'Days from Order to Ship' },
+            title: { display: true, text: 'Days from Order Date to Ship Date' },
             beginAtZero: true
           }
+        }
+      }
+    });
+  },
+
+  // 4. Pipeline 4: Sales by Customer Segment (Doughnut Chart)
+  renderSegmentSales(canvasId, data) {
+    this.destroyChart(canvasId);
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const labels = (data || []).map((d) => d.segment);
+    const sales = (data || []).map((d) => d.totalSales);
+
+    this.instances[canvasId] = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels,
+        datasets: [
+          {
+            data: sales,
+            backgroundColor: ['#6366f1', '#3b82f6', '#f59e0b'],
+            borderWidth: 2,
+            borderColor: '#ffffff'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom' }
         }
       }
     });

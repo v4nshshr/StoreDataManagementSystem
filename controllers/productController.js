@@ -10,7 +10,7 @@ try {
 /**
  * @desc    Get all products with pagination, sorting, search, and category filters
  * @route   GET /api/products
- * @access  Private (admin, manager, cashier)
+ * @access  Public / Permissive for Demo
  */
 const getProducts = async (req, res, next) => {
   try {
@@ -27,20 +27,40 @@ const getProducts = async (req, res, next) => {
     const pageNum = Math.max(1, parseInt(page, 10) || 1);
     const limitNum = Math.min(100, Math.max(1, parseInt(limit, 10) || 20));
 
+    // Fallback when MongoDB is offline (e.g. Render cloud preview)
     if (mongoose.connection.readyState !== 1 && snapshot) {
+      let filtered = snapshot.products || [];
+
+      if (search) {
+        const s = search.toLowerCase();
+        filtered = filtered.filter(p => (p.name && p.name.toLowerCase().includes(s)) || (p.productId && p.productId.toLowerCase().includes(s)));
+      }
+
+      if (category) {
+        filtered = filtered.filter(p => p.category === category);
+      }
+
+      if (subCategory) {
+        filtered = filtered.filter(p => p.subCategory && p.subCategory.toLowerCase() === subCategory.toLowerCase());
+      }
+
+      const total = filtered.length;
+      const skip = (pageNum - 1) * limitNum;
+      const paginated = filtered.slice(skip, skip + limitNum);
+
       return res.status(200).json({
         success: true,
-        count: snapshot.products.length,
-        total: snapshot.kpis?.totalProducts || snapshot.products.length,
-        totalPages: 1,
-        currentPage: 1,
+        count: paginated.length,
+        total,
+        totalPages: Math.ceil(total / limitNum) || 1,
+        currentPage: pageNum,
         limit: limitNum,
-        data: snapshot.products
+        data: paginated,
+        isDemoPreview: true
       });
     }
 
     const skip = (pageNum - 1) * limitNum;
-
     const filter = {};
 
     if (search) {
@@ -81,10 +101,20 @@ const getProducts = async (req, res, next) => {
 /**
  * @desc    Get distinct categories and their sub-categories
  * @route   GET /api/products/categories
- * @access  Private (admin, manager, cashier)
  */
 const getCategories = async (req, res, next) => {
   try {
+    if (mongoose.connection.readyState !== 1 && snapshot) {
+      return res.status(200).json({
+        success: true,
+        data: [
+          { category: 'Technology', subCategories: ['Phones', 'Accessories', 'Machines', 'Copiers'] },
+          { category: 'Furniture', subCategories: ['Chairs', 'Tables', 'Bookcases', 'Furnishings'] },
+          { category: 'Office Supplies', subCategories: ['Paper', 'Binders', 'Storage', 'Art', 'Appliances'] }
+        ]
+      });
+    }
+
     const categoriesWithSubs = await Product.aggregate([
       {
         $group: {
@@ -104,6 +134,7 @@ const getCategories = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
+      count: categoriesWithSubs.length,
       data: categoriesWithSubs
     });
   } catch (error) {
@@ -112,19 +143,24 @@ const getCategories = async (req, res, next) => {
 };
 
 /**
- * @desc    Get single product by Product ID
+ * @desc    Get a single product by productId
  * @route   GET /api/products/:id
- * @access  Private (admin, manager, cashier)
  */
 const getProductById = async (req, res, next) => {
   try {
     const { id } = req.params;
 
+    if (mongoose.connection.readyState !== 1 && snapshot) {
+      const prod = (snapshot.products || []).find(p => p.productId === id || p._id === id);
+      if (prod) return res.status(200).json({ success: true, data: prod });
+      return res.status(404).json({ success: false, message: 'Product not found' });
+    }
+
     const query = id.match(/^[0-9a-fA-F]{24}$/)
       ? { $or: [{ _id: id }, { productId: id }] }
       : { productId: id };
 
-    const product = await Product.findOne(query).lean();
+    const product = await Product.findOne(query);
 
     if (!product) {
       return res.status(404).json({
@@ -143,9 +179,8 @@ const getProductById = async (req, res, next) => {
 };
 
 /**
- * @desc    Create a new product
+ * @desc    Create a new product (insertOne)
  * @route   POST /api/products
- * @access  Private (admin, manager)
  */
 const createProduct = async (req, res, next) => {
   try {
@@ -155,6 +190,25 @@ const createProduct = async (req, res, next) => {
       return res.status(400).json({
         success: false,
         message: 'Missing required product fields: productId, name, category, and subCategory are required'
+      });
+    }
+
+    // In memory fallback for cloud demo if DB is offline
+    if (mongoose.connection.readyState !== 1) {
+      const newProd = {
+        _id: 'prod_' + Date.now(),
+        productId: productId.trim(),
+        name: name.trim(),
+        category,
+        subCategory: subCategory.trim()
+      };
+      if (snapshot && snapshot.products) {
+        snapshot.products.unshift(newProd);
+      }
+      return res.status(201).json({
+        success: true,
+        message: 'Product created successfully (Demo Mode)',
+        data: newProd
       });
     }
 
@@ -184,14 +238,26 @@ const createProduct = async (req, res, next) => {
 };
 
 /**
- * @desc    Update a product
+ * @desc    Update a product (updateOne with $set)
  * @route   PUT /api/products/:id
- * @access  Private (admin, manager)
  */
 const updateProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { name, category, subCategory } = req.body;
+
+    if (mongoose.connection.readyState !== 1) {
+      if (snapshot && snapshot.products) {
+        const prod = snapshot.products.find(p => p.productId === id || p._id === id);
+        if (prod) {
+          if (name) prod.name = name.trim();
+          if (category) prod.category = category;
+          if (subCategory) prod.subCategory = subCategory.trim();
+          return res.status(200).json({ success: true, message: 'Product updated (Demo Mode)', data: prod });
+        }
+      }
+      return res.status(404).json({ success: false, message: 'Product not found' });
+    }
 
     const query = id.match(/^[0-9a-fA-F]{24}$/)
       ? { $or: [{ _id: id }, { productId: id }] }
@@ -225,15 +291,28 @@ const updateProduct = async (req, res, next) => {
 };
 
 /**
- * @desc    Delete a product
+ * @desc    Delete a product (deleteOne)
  * @route   DELETE /api/products/:id
- * @access  Private (admin only)
  */
 const deleteProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const product = await Product.findOne({ productId: id });
+    if (mongoose.connection.readyState !== 1) {
+      if (snapshot && snapshot.products) {
+        snapshot.products = snapshot.products.filter(p => p.productId !== id && p._id !== id);
+      }
+      return res.status(200).json({
+        success: true,
+        message: `Product '${id}' deleted successfully (Demo Mode)`
+      });
+    }
+
+    const query = id.match(/^[0-9a-fA-F]{24}$/)
+      ? { $or: [{ _id: id }, { productId: id }] }
+      : { productId: id };
+
+    const product = await Product.findOne(query);
     if (!product) {
       return res.status(404).json({
         success: false,
@@ -241,20 +320,11 @@ const deleteProduct = async (req, res, next) => {
       });
     }
 
-    // Check if product is referenced in existing orders
-    const ordersWithProduct = await Order.countDocuments({ 'items.productId': id });
-    if (ordersWithProduct > 0) {
-      return res.status(400).json({
-        success: false,
-        message: `Cannot delete product '${id}': Product is referenced in ${ordersWithProduct} existing order line items.`
-      });
-    }
-
-    await Product.deleteOne({ productId: id });
+    await Product.deleteOne({ _id: product._id });
 
     res.status(200).json({
       success: true,
-      message: `Product '${id}' successfully deleted`
+      message: `Product '${product.productId}' successfully deleted`
     });
   } catch (error) {
     next(error);
