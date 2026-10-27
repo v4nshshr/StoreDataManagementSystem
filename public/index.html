@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>US Retail Store | NoSQL (MongoDB) Management System</title>
+  <title>US Retail Store Management System | MongoDB & Express</title>
   <!-- Google Font & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
@@ -20,36 +20,30 @@
     <div class="brand">
       <div class="brand-icon"><i class="fa-solid fa-leaf"></i></div>
       <div>
-        <h1>US Retail Store System</h1>
-        <span class="subtitle">MongoDB / NoSQL Database Demonstration</span>
+        <h1>US Retail Store Management System</h1>
+        <span class="subtitle">MongoDB Database Backend & Aggregation Engine</span>
       </div>
     </div>
     <div class="header-badges">
       <span class="badge badge-db"><i class="fa-solid fa-database"></i> Database: <strong>retail_store_db</strong></span>
-      <span class="badge badge-success" id="connection-status"><i class="fa-solid fa-circle-check"></i> System Online</span>
+      <span class="badge badge-success" id="connection-status"><i class="fa-solid fa-circle-check"></i> Connected</span>
     </div>
   </header>
 
-  <!-- Main Navigation Tabs -->
+  <!-- Main Navigation Tabs: Only the 2 Core Professional Tabs -->
   <nav class="nav-tabs">
     <button class="tab-btn active" data-tab="tab-analytics">
-      <i class="fa-solid fa-chart-pie"></i> 1. Aggregation Pipelines
+      <i class="fa-solid fa-chart-pie"></i> Store Analytics & Aggregations
     </button>
     <button class="tab-btn" data-tab="tab-crud">
-      <i class="fa-solid fa-bolt"></i> 2. CRUD Operations
-    </button>
-    <button class="tab-btn" data-tab="tab-schema">
-      <i class="fa-solid fa-diagram-project"></i> 3. Schema & Collections
-    </button>
-    <button class="tab-btn" data-tab="tab-viva">
-      <i class="fa-solid fa-graduation-cap"></i> 4. Viva Cheat Sheet
+      <i class="fa-solid fa-boxes-stacked"></i> Product Management (CRUD)
     </button>
   </nav>
 
   <main class="main-container">
 
     <!-- ============================================================= -->
-    <!-- TAB 1: AGGREGATION PIPELINES (THE CORE OF NOSQL EVALUATION)   -->
+    <!-- TAB 1: STORE ANALYTICS & AGGREGATIONS                         -->
     <!-- ============================================================= -->
     <section id="tab-analytics" class="tab-panel active">
       
@@ -75,7 +69,7 @@
 
         <div class="metric-card">
           <div class="metric-info">
-            <span class="metric-label">ATOMIC ORDERS</span>
+            <span class="metric-label">TOTAL ORDERS</span>
             <span class="metric-val" id="metric-orders">5,009</span>
             <span class="metric-sub">With embedded line items</span>
           </div>
@@ -84,7 +78,7 @@
 
         <div class="metric-card">
           <div class="metric-info">
-            <span class="metric-label">UNIQUE CUSTOMERS</span>
+            <span class="metric-label">REGISTERED CUSTOMERS</span>
             <span class="metric-val" id="metric-customers">793</span>
             <span class="metric-sub">Referenced by customerId</span>
           </div>
@@ -96,8 +90,8 @@
       <div class="showcase-card">
         <div class="card-header">
           <div>
-            <h3><i class="fa-solid fa-chart-column text-blue"></i> Pipeline 1: Sales & Profit by Category</h3>
-            <p>Calculates total sales and net profit grouped by product categories using <code>$unwind</code>, <code>$lookup</code>, and <code>$group</code>.</p>
+            <h3><i class="fa-solid fa-chart-column text-blue"></i> Category Sales & Profit Breakdown</h3>
+            <p>Calculates total revenue and profit across product categories using <code>$unwind</code>, <code>$lookup</code>, and <code>$group</code>.</p>
           </div>
           <button class="btn btn-outline toggle-code-btn" data-target="code-pipeline-1">
             <i class="fa-solid fa-code"></i> View MongoDB Query
@@ -147,8 +141,8 @@
       <div class="showcase-card">
         <div class="card-header">
           <div>
-            <h3><i class="fa-solid fa-chart-line text-green"></i> Pipeline 2: Monthly Sales & Profit Trend</h3>
-            <p>Extracts year and month from ISO date fields using MongoDB date expressions <code>$year</code> and <code>$month</code>.</p>
+            <h3><i class="fa-solid fa-chart-line text-green"></i> Monthly Sales & Profit Timeline</h3>
+            <p>Extracts year and month from order date fields using MongoDB date expressions <code>$year</code> and <code>$month</code>.</p>
           </div>
           <button class="btn btn-outline toggle-code-btn" data-target="code-pipeline-2">
             <i class="fa-solid fa-code"></i> View MongoDB Query
@@ -206,8 +200,8 @@
         <div class="showcase-card">
           <div class="card-header">
             <div>
-              <h3><i class="fa-solid fa-trophy text-amber"></i> Pipeline 3: Top 5 Customers</h3>
-              <p>Top lifetime spenders using <code>$group</code>, <code>$sort</code>, <code>$limit</code>, and <code>$lookup</code>.</p>
+              <h3><i class="fa-solid fa-trophy text-amber"></i> Top 5 Customers by Lifetime Spend</h3>
+              <p>Top revenue-generating customers aggregated using <code>$group</code>, <code>$sort</code>, <code>$limit</code>, and <code>$lookup</code>.</p>
             </div>
             <button class="btn btn-outline toggle-code-btn" data-target="code-pipeline-3">
               <i class="fa-solid fa-code"></i> Query
@@ -259,8 +253,8 @@
         <div class="showcase-card">
           <div class="card-header">
             <div>
-              <h3><i class="fa-solid fa-truck-fast text-purple"></i> Pipeline 4: Shipping Mode Transit</h3>
-              <p>Average delivery days computed via date subtraction arithmetic in <code>$project</code>.</p>
+              <h3><i class="fa-solid fa-truck-fast text-purple"></i> Shipping Transit Time Analysis</h3>
+              <p>Average delivery transit days computed via date arithmetic in <code>$project</code>.</p>
             </div>
             <button class="btn btn-outline toggle-code-btn" data-target="code-pipeline-4">
               <i class="fa-solid fa-code"></i> Query
@@ -302,14 +296,14 @@
 
 
     <!-- ============================================================= -->
-    <!-- TAB 2: CRUD OPERATIONS (INTERACTIVE TESTER)                   -->
+    <!-- TAB 2: PRODUCT MANAGEMENT & CRUD OPERATIONS                  -->
     <!-- ============================================================= -->
     <section id="tab-crud" class="tab-panel">
       
       <div class="banner">
         <div>
-          <h3><i class="fa-solid fa-terminal text-green"></i> Interactive MongoDB CRUD Operations</h3>
-          <p>Test Create, Read, Update, and Delete operations on the <code>products</code> collection. Every action executes a real MongoDB command and shows you the query syntax.</p>
+          <h3><i class="fa-solid fa-database text-blue"></i> Product Catalog & MongoDB CRUD Operations</h3>
+          <p>Perform Create, Read, and Delete operations on the <code>products</code> collection. Every action executes a real MongoDB query shown below.</p>
         </div>
       </div>
 
@@ -320,7 +314,7 @@
           
           <!-- READ / SEARCH -->
           <div class="action-card">
-            <h4><i class="fa-solid fa-magnifying-glass text-blue"></i> 1. READ / FIND (Query Documents)</h4>
+            <h4><i class="fa-solid fa-magnifying-glass text-blue"></i> Search Catalog: <code>find()</code></h4>
             <div class="form-row">
               <input type="text" id="crud-search-input" class="form-control" placeholder="Search product name (e.g. Chair, Phone)...">
               <select id="crud-filter-cat" class="form-control">
@@ -329,13 +323,13 @@
                 <option value="Office Supplies">Office Supplies</option>
                 <option value="Technology">Technology</option>
               </select>
-              <button class="btn btn-primary" id="btn-run-search"><i class="fa-solid fa-filter"></i> Run Find()</button>
+              <button class="btn btn-primary" id="btn-run-search"><i class="fa-solid fa-filter"></i> Search</button>
             </div>
           </div>
 
           <!-- CREATE / INSERT -->
           <div class="action-card">
-            <h4><i class="fa-solid fa-plus-circle text-green"></i> 2. CREATE / INSERT (Add Document)</h4>
+            <h4><i class="fa-solid fa-plus-circle text-green"></i> Add New Product: <code>insertOne()</code></h4>
             <form id="form-create-product">
               <div class="form-grid">
                 <input type="text" id="new-prod-id" class="form-control" placeholder="Product ID (e.g. TEC-PH-99999)" required>
@@ -347,14 +341,14 @@
                 </select>
                 <input type="text" id="new-prod-subcat" class="form-control" placeholder="Sub-Category (e.g. Phones)" required>
               </div>
-              <button type="submit" class="btn btn-success mt-2"><i class="fa-solid fa-floppy-disk"></i> Execute insertOne()</button>
+              <button type="submit" class="btn btn-success mt-2"><i class="fa-solid fa-floppy-disk"></i> Add Product</button>
             </form>
           </div>
 
           <!-- Executed Query Terminal Output -->
           <div class="terminal-card">
             <div class="terminal-header">
-              <span><i class="fa-solid fa-terminal"></i> Last Executed MongoDB Command</span>
+              <span><i class="fa-solid fa-terminal"></i> Executed MongoDB Query</span>
               <span class="status-pill" id="last-op-status">Ready</span>
             </div>
             <pre class="terminal-body" id="crud-terminal-code">db.products.find({}).limit(10);</pre>
@@ -365,7 +359,7 @@
         <!-- Right: Results Table -->
         <div class="crud-results">
           <div class="results-header">
-            <h4><i class="fa-solid fa-table text-purple"></i> Matching Documents in MongoDB</h4>
+            <h4><i class="fa-solid fa-table text-purple"></i> Product Catalog (<code>db.products</code>)</h4>
             <span class="count-badge" id="results-count">Showing 10 documents</span>
           </div>
 
@@ -377,7 +371,7 @@
                   <th>Product Name</th>
                   <th>Category</th>
                   <th>Sub-Category</th>
-                  <th>Actions</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody id="crud-products-tbody">
@@ -391,207 +385,10 @@
 
     </section>
 
-
-    <!-- ============================================================= -->
-    <!-- TAB 3: SCHEMA DESIGN & COLLECTIONS (EMBEDDING VS REFERENCING) -->
-    <!-- ============================================================= -->
-    <section id="tab-schema" class="tab-panel">
-      
-      <div class="banner">
-        <div>
-          <h3><i class="fa-solid fa-database text-blue"></i> MongoDB Schema Architecture & Indexing</h3>
-          <p>Inspect collections, indexes, and document structures. Perfect for answering schema design questions in your viva!</p>
-        </div>
-      </div>
-
-      <!-- Schema Design Decision Highlight -->
-      <div class="comparison-card">
-        <h3><i class="fa-solid fa-scale-balanced text-amber"></i> Core Viva Decision: Embedding vs. Referencing</h3>
-        <div class="comparison-grid">
-          <div class="comparison-col">
-            <div class="col-title text-green"><i class="fa-solid fa-cubes"></i> What We EMBEDDED: Order Items in Orders</div>
-            <p><strong>Decision:</strong> Each <code>order</code> document contains an embedded array of <code>items: [...]</code>.</p>
-            <ul>
-              <li><strong>Atomicity:</strong> An order and its line items represent a single transaction created together.</li>
-              <li><strong>Historical Snapshot:</strong> Prices and discounts at purchase time remain immutable even if the catalog changes later.</li>
-              <li><strong>Bounded Cardinality:</strong> A retail order has only 1–15 items; it will never exceed MongoDB's <strong>16 MB document limit</strong>.</li>
-            </ul>
-          </div>
-
-          <div class="comparison-col">
-            <div class="col-title text-blue"><i class="fa-solid fa-link"></i> What We REFERENCED: Customers in Orders</div>
-            <p><strong>Decision:</strong> Orders only store a reference: <code>customerId: "CG-12520"</code>.</p>
-            <ul>
-              <li><strong>Unbounded Growth:</strong> A loyal customer places hundreds of orders. Embedding orders inside customer documents would exceed the 16MB document limit.</li>
-              <li><strong>Centralized Updates:</strong> If Claire Gute changes her address, updating one document in <code>customers</code> avoids modifying 100 historical orders.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Collections Inspection -->
-      <div class="collections-grid">
-        
-        <!-- Collection 1: Orders -->
-        <div class="collection-card">
-          <div class="coll-header">
-            <h4><i class="fa-solid fa-folder text-blue"></i> db.orders</h4>
-            <span class="doc-count">5,009 Documents</span>
-          </div>
-          <div class="coll-body">
-            <div class="index-tag"><strong>Indexes:</strong> <code>{ orderId: 1 }</code>, <code>{ "items.productId": 1 }</code> (Multikey), <code>{ orderDate: -1, customerId: 1 }</code></div>
-            <pre class="json-preview"><code>{
-  "_id": ObjectId("..."),
-  "orderId": "CA-2016-152156",
-  "customerId": "CG-12520",  // Reference
-  "orderDate": ISODate("2016-11-08"),
-  "shipDate": ISODate("2016-11-11"),
-  "shipMode": "Second Class",
-  "items": [                  // Embedded Array
-    {
-      "productId": "FUR-BO-10001798",
-      "productName": "Bush Somerset Bookcase",
-      "sales": 261.96,
-      "quantity": 2,
-      "discount": 0,
-      "profit": 41.91
-    }
-  ],
-  "totals": {
-    "sales": 993.90,
-    "profit": 261.49,
-    "quantity": 5
-  }
-}</code></pre>
-          </div>
-        </div>
-
-        <!-- Collection 2: Customers -->
-        <div class="collection-card">
-          <div class="coll-header">
-            <h4><i class="fa-solid fa-folder text-purple"></i> db.customers</h4>
-            <span class="doc-count">793 Documents</span>
-          </div>
-          <div class="coll-body">
-            <div class="index-tag"><strong>Indexes:</strong> <code>{ customerId: 1 }</code>, <code>{ name: 1 }</code>, <code>{ "address.state": 1, "address.region": 1 }</code></div>
-            <pre class="json-preview"><code>{
-  "_id": ObjectId("..."),
-  "customerId": "CG-12520",
-  "name": "Claire Gute",
-  "segment": "Consumer",
-  "address": {
-    "city": "Henderson",
-    "state": "Kentucky",
-    "postalCode": "42420",   // Zero-padded 5 digits
-    "region": "South"
-  }
-}</code></pre>
-          </div>
-        </div>
-
-        <!-- Collection 3: Products -->
-        <div class="collection-card">
-          <div class="coll-header">
-            <h4><i class="fa-solid fa-folder text-green"></i> db.products</h4>
-            <span class="doc-count">1,862 Documents</span>
-          </div>
-          <div class="coll-body">
-            <div class="index-tag"><strong>Indexes:</strong> <code>{ productId: 1 }</code>, <code>{ category: 1, subCategory: 1 }</code> (Compound)</div>
-            <pre class="json-preview"><code>{
-  "_id": ObjectId("..."),
-  "productId": "FUR-BO-10001798",
-  "name": "Bush Somerset Collection Bookcase",
-  "category": "Furniture",
-  "subCategory": "Bookcases"
-}</code></pre>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ============================================================= -->
-    <!-- TAB 4: VIVA CHEAT SHEET                                       -->
-    <!-- ============================================================= -->
-    <section id="tab-viva" class="tab-panel">
-      
-      <div class="banner">
-        <div>
-          <h3><i class="fa-solid fa-user-graduate text-purple"></i> NoSQL Viva Examiner Questions & Answers</h3>
-          <p>Read these clear, direct answers to ace your practical exam and viva evaluation!</p>
-        </div>
-      </div>
-
-      <div class="faq-list">
-        
-        <div class="faq-item">
-          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q1: What is NoSQL and why did you use MongoDB instead of SQL / MySQL?</div>
-          <div class="faq-a">
-            <strong>Answer:</strong> In SQL, data is strictly organized into rectangular tables with rigid schemas and foreign keys. In MongoDB, data is stored as self-contained <strong>BSON (Binary JSON) documents</strong>. We used MongoDB because retail transactions naturally contain nested items (one order has multiple products). Document models allow embedding related data together for faster reads, avoiding expensive table joins, and providing flexible, agile schema evolution.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q2: Explain Embedding vs. Referencing in your schema.</div>
-          <div class="faq-a">
-            <strong>Answer:</strong> 
-            <ul>
-              <li><strong>Embedding (1-to-Few):</strong> We embedded line items inside <code>orders</code> because an order and its items are created together and represent an immutable transaction snapshot.</li>
-              <li><strong>Referencing (1-to-Many):</strong> We referenced <code>customers</code> in <code>orders</code> because a customer can have hundreds of orders over time. Embedding all orders in customer documents would cause unbounded array growth and hit MongoDB's <strong>16MB document size limit</strong>.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q3: What is an Aggregation Pipeline and what are the main stages you used?</div>
-          <div class="faq-a">
-            <strong>Answer:</strong> An Aggregation Pipeline processes documents sequentially through stages like an assembly line. The stages used in our project:
-            <ul>
-              <li><code>$match</code>: Filters documents by criteria (like SQL <code>WHERE</code>).</li>
-              <li><code>$unwind</code>: Deconstructs an array field so each element becomes a separate document.</li>
-              <li><code>$group</code>: Groups documents by key and computes aggregates using <code>$sum</code>, <code>$avg</code> (like SQL <code>GROUP BY</code>).</li>
-              <li><code>$project</code>: Reshapes output fields or computes derived values (like SQL <code>SELECT</code>).</li>
-              <li><code>$sort</code>: Sorts output ascending or descending (like SQL <code>ORDER BY</code>).</li>
-              <li><code>$lookup</code>: Performs a left outer join with another collection (like SQL <code>LEFT JOIN</code>).</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q4: What indexes did you create and how do they speed up queries?</div>
-          <div class="faq-a">
-            <strong>Answer:</strong> Without indexes, MongoDB must perform a <em>COLLSCAN</em> (scanning every document in the collection). With a B-Tree index, it does an <em>IXSCAN</em> in $O(\log N)$ time.
-            <ul>
-              <li><strong>Multikey Index on <code>items.productId</code> in orders:</strong> Because <code>items</code> is an array, this index creates an entry for every product in every order for fast lookups.</li>
-              <li><strong>Compound Index on <code>{ category: 1, subCategory: 1 }</code> in products:</strong> Speeds up catalog filtering following the prefix rule.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q5: What is BSON?</div>
-          <div class="faq-a">
-            <strong>Answer:</strong> BSON stands for <strong>Binary JSON</strong>. It is the binary serialization format MongoDB uses to store documents on disk and over the network. BSON extends standard JSON by adding native data types not found in JSON, such as <code>Date</code>, <code>ObjectId</code>, <code>Int32</code>, <code>Int64</code>, and binary data.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q"><i class="fa-solid fa-circle-question text-blue"></i> Q6: What is the <code>_id</code> field in MongoDB?</div>
-          <div class="faq-a">
-            <strong>Answer:</strong> Every MongoDB document must have a unique primary key called <code>_id</code>. If omitted on insertion, MongoDB automatically generates a 12-byte <code>ObjectId</code> consisting of a 4-byte timestamp, a 5-byte random value, and a 3-byte incrementing counter.
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
   </main>
 
   <footer class="app-footer">
-    <p>US Retail Store Management System | Built with <strong>MongoDB</strong>, <strong>Express</strong>, and <strong>Node.js</strong> for NoSQL Database Lab Evaluation</p>
+    <p>US Retail Store Management System | Built with <strong>MongoDB</strong>, <strong>Express</strong>, and <strong>Node.js</strong></p>
   </footer>
 
   <!-- Scripts -->
